@@ -19,7 +19,7 @@ e.g. `MovieModel` that contains the movies table fields and constructor.
 the controller with maintain the logic of the model, the CRUD opeartions for example.
 
 ## Third step: PHP API
-*You can skip this step and do it at the end*
+**You can skip this step and do it at the end**
 Each model should have he's own api, e.g. `MovieApi` with `CRUD` operations.
 you should make an abstract class that all apis extends.
 
@@ -33,3 +33,28 @@ Write a global css file for all the html files, and for each model write he's ow
 write a global js file that contain the common functions, for each model write he's own js file.
 js file should contains: Module for all the model operations, Function constructor to make the model in the client side.
 
+
+
+Project file hirarchy for example:
+* front
+    * html
+        * movie
+            * create.html (C)
+            * index.html  (R)
+            * update.html (U)
+            * delete.html (D)
+            * movie.less
+            * movie.js
+* back
+    * models
+        * model.php (all models extends this)
+        * MovieModel.php
+    * controllers
+        * controller.php (all controllers extends this)
+        * MovieController.php
+    * api
+        * API.php (the abstract class)
+        * MovieApi.php
+    * common
+        * bl.php
+        * dal.php
