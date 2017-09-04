@@ -53,7 +53,7 @@ Project file hirarchy for example:
         * controller.php (all controllers extends this)
         * MovieController.php
     * api
-        * API.php (the abstract class)
+        * api.php (the abstract class)
         * MovieApi.php
     * common
         * bl.php
