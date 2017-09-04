@@ -1,0 +1,51 @@
+-- MySQL Workbench Forward Engineering
+
+SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
+SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
+SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL,ALLOW_INVALID_DATES';
+
+-- -----------------------------------------------------
+-- Schema mydb
+-- -----------------------------------------------------
+-- -----------------------------------------------------
+-- Schema movies
+-- -----------------------------------------------------
+
+-- -----------------------------------------------------
+-- Schema movies
+-- -----------------------------------------------------
+CREATE SCHEMA IF NOT EXISTS `movies` DEFAULT CHARACTER SET latin1 ;
+USE `movies` ;
+
+-- -----------------------------------------------------
+-- Table `movies`.`Directors`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `movies`.`Directors` (
+  `id` INT(11) NOT NULL AUTO_INCREMENT,
+  `name` VARCHAR(50) NOT NULL,
+  PRIMARY KEY (`id`))
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = latin1;
+
+
+-- -----------------------------------------------------
+-- Table `movies`.`Movies`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `movies`.`Movies` (
+  `id` INT(11) NOT NULL AUTO_INCREMENT,
+  `name` VARCHAR(50) NOT NULL,
+  `d_id` INT(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  INDEX `fk_Movies_Directors_idx` (`d_id` ASC),
+  CONSTRAINT `fk_Movies_Directors`
+    FOREIGN KEY (`d_id`)
+    REFERENCES `movies`.`Directors` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = latin1;
+
+
+SET SQL_MODE=@OLD_SQL_MODE;
+SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
+SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
