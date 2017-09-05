@@ -1,0 +1,45 @@
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+body {
+  width: 95%;
+  margin: auto;
+}
+h1,
+h3 {
+  text-align: center;
+  margin: 30px 0px;
+}
+.form-control {
+  display: inline-block;
+  width: auto;
+  min-width: 60%;
+}
+#CreateUpdateDiv {
+  margin: 0 auto;
+}
+#tblCUD > tbody > tr > td {
+  border-top: none;
+  margin-bottom: 5px;
+}
+#tblCUD > tbody > tr > td .title {
+  background-color: cyan;
+  border-bottom-color: orangered;
+  width: 12%;
+  font-weight: 700;
+}
+#tblCUD > tbody > tr > td .content {
+  background-color: yellow;
+  width: 45%;
+}
+#tblCUD > tbody > tr > td .error-td {
+  background-color: lightgreen;
+  width: 43%;
+}
+#frmCUD label.error {
+  padding-left: 14px;
+  font-weight: bold;
+  color: #EA5200;
+}
