@@ -15,28 +15,72 @@
     
 </head>
 <body>
-    <form id="frmCUD"> 
+        <div class="container">
+            <form>
+                <h1>Create Lead</h1>
+                    
+                <div class="form-group row">
+                    <label for="movieName" class="col-sm-2 col-form-label">Movie Name</label>
+                    <div class="col-sm-6">
+                    <input type="text" class="form-control" id="movieName" placeholder="Enter new Movie name" maxlength="50">
+                    </div>
+                    <div class="col-sm-4">
+                        <label class="error error-td">errori</label>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="DirectorDDL" class="col-sm-2 col-form-label">Movie Director</label>
+                    <div class="col-sm-6">
+                        <select id="DirectorDDL"  class="form-control" name="director"  placeholder="Select Director" ></select>
+                    </div>
+                    <div class="col-sm-4">
+                        <label class="error error-td">errori</label>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="offset-sm-2 col-sm-10">
+                    <button type="submit" class="btn btn-primary">Sign in</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    <!-- <form id="frmCUD"> 
         <h1>Create Lead</h1>
         <main class="center-block">
             <div id="CreateUpdateDiv">
-
-
-                    <table id="tblCUD" class="table table-responsive">
+                <div id="tblCUD">
+                    <div class="form-group row">
+                            <label for="movieName" class="col-6 col-form-label">Movie Name</label>
+                            <div class="col-6">
+                              <input  id="movieName" class="form-control" type="text" placeholder="Enter new Movie name" maxlength="45" >
+                            </div>
+                    </div>
+                    <div class="form-group row">
+                            <label for="movieDirector" class="col-6 col-form-label">Movie Director</label>
+                            <div class="col-6">
+                               <select id="DirectorDDL"  class="form-control" name="director"  placeholder="Select Director" ></select>
+                            </div>
+                    </div>
+                </div>   
+                 
+                      <table id="tblCUD" class="table table-responsive">
                             <tbody>
                                 <tr>
-                                    <td class="title">Movie Name</td>
-                                    <td class="content"><input type="text"  class="form-control" id="leadName" name="leadName" placeholder="Enter new Movie name" maxlength="45"></td>
-                                    <td class="error-td"><label class="error"></label></td>
+                                    <td><label class="title">Name</label></td>
+                                    <td><input type="text"  class="form-control content" id="leadName" name="leadName" placeholder="Enter new Movie name" maxlength="45"></td>
+                                    <td><label class="error error-td"></label></td>
                                 </tr>
                                 <tr>
-                                    <td class="title">Movie Director</td>
-                                    <td class="content"><select id="DirectorDDL"  class="form-control" name="director"  placeholder="Select Director" ></select></td>
-                                    <td class="error-td"><label class="error"></label></td>
+                                    <td><label class="title">Movie Director</label></td>
+                                    <td><select id="DirectorDDL content"  class="form-control" name="director"  placeholder="Select Director" ></select></td>
+                                    <td><label class="error error-td"></label></td>
                                 </tr>
                             </tbody>
-                        </table>
+                        </table> -->
 
-
+                        <!-- <td class="title">Movie Director</td>
+                        <td class="content"><select id="DirectorDDL"  class="form-control" name="director"  placeholder="Select Director" ></select></td>
+                        <td class="error-td"><label class="error"></label></td> 
 
                 <input  type="hidden"  name="action" value="AddMovie" >
                 <div class="form-group">
@@ -45,7 +89,7 @@
                 </div>
             </div>
         </main> 
-    </form> 
+    </form>  --> 
     <!-- <script src='../../js/crmGeneral.js'></script> 
     <script src='../js/lead.js'></script> 
     <script src='../js/validations.js'></script>  -->
