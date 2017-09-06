@@ -15,35 +15,35 @@
     
 </head>
 <body>
+    <form>
         <div class="container">
-            <form>
-                <h1>Create Lead</h1>
-                    
+                <h1>Create Movie</h1>
                 <div class="form-group row">
                     <label for="movieName" class="col-sm-2 col-form-label">Movie Name</label>
-                    <div class="col-sm-6">
-                    <input type="text" class="form-control" id="movieName" placeholder="Enter new Movie name" maxlength="50">
-                    </div>
                     <div class="col-sm-4">
+                        <input type="text" class="form-control" id="movieName" placeholder="Enter new Movie name" maxlength="50">
+                    </div>
+                    <div class="col-sm-6">
                         <label class="error error-td">errori</label>
                     </div>
                 </div>
                 <div class="form-group row">
                     <label for="DirectorDDL" class="col-sm-2 col-form-label">Movie Director</label>
-                    <div class="col-sm-6">
+                    <div class="col-sm-4">
                         <select id="DirectorDDL"  class="form-control" name="director"  placeholder="Select Director" ></select>
                     </div>
-                    <div class="col-sm-4">
+                    <div class="col-sm-6">
                         <label class="error error-td">errori</label>
                     </div>
                 </div>
                 <div class="form-group row">
                     <div class="offset-sm-2 col-sm-10">
-                    <button type="submit" class="btn btn-primary">Sign in</button>
+                        <input  type="hidden"  name="action" value="AddMovie" >
+                        <button class="btnAdd btn btn-primary"  name="action" value="AddMovie">Add Movie</button>
                     </div>
                 </div>
-            </form>
         </div>
+    </form>
     <!-- <form id="frmCUD"> 
         <h1>Create Lead</h1>
         <main class="center-block">
@@ -90,8 +90,7 @@
             </div>
         </main> 
     </form>  --> 
-    <!-- <script src='../../js/crmGeneral.js'></script> 
-    <script src='../js/lead.js'></script> 
-    <script src='../js/validations.js'></script>  -->
+    <script src='../../js/share.js'></script> 
+    <script src='../../js/movie.js'></script> 
 </body>
 </html>
