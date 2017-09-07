@@ -18,20 +18,21 @@ CREATE SCHEMA IF NOT EXISTS `movies` DEFAULT CHARACTER SET latin1 ;
 USE `movies` ;
 
 -- -----------------------------------------------------
--- Table `movies`.`Directors`
+-- Table `movies`.`directors`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `movies`.`Directors` (
+CREATE TABLE IF NOT EXISTS `movies`.`directors` (
   `id` INT(11) NOT NULL AUTO_INCREMENT,
   `name` VARCHAR(50) NOT NULL,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB
+AUTO_INCREMENT = 6
 DEFAULT CHARACTER SET = latin1;
 
 
 -- -----------------------------------------------------
--- Table `movies`.`Movies`
+-- Table `movies`.`movies`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `movies`.`Movies` (
+CREATE TABLE IF NOT EXISTS `movies`.`movies` (
   `id` INT(11) NOT NULL AUTO_INCREMENT,
   `name` VARCHAR(50) NOT NULL,
   `d_id` INT(11) NOT NULL,
@@ -39,12 +40,31 @@ CREATE TABLE IF NOT EXISTS `movies`.`Movies` (
   INDEX `fk_Movies_Directors_idx` (`d_id` ASC),
   CONSTRAINT `fk_Movies_Directors`
     FOREIGN KEY (`d_id`)
-    REFERENCES `movies`.`Directors` (`id`)
+    REFERENCES `movies`.`directors` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = latin1;
 
+USE `movies` ;
+
+-- -----------------------------------------------------
+-- procedure get_Directors
+-- -----------------------------------------------------
+
+DELIMITER $$
+USE `movies`$$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `get_Directors`()
+BEGIN
+
+	SELECT   id,
+			 name
+	FROM directors
+    order by  name;
+    
+END$$
+
+DELIMITER ;
 
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
