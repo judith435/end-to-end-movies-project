@@ -1,23 +1,23 @@
 <?php
     require_once 'abstract-api.php';
-    require_once '../controllers/MovieController.php';
+    require_once '../controllers/DirectorController.php';
 
-    class MovieApi extends Api{
+    class DirectorApi extends Api{
 
         function Create($params) {
-            $c = new MovierController;
+            $c = new DirectorController;
             $c->CreateCustomer($param);
         }
 
         function Read($params) {
-            $c = new MovieController;
+            $dc = new DirectorController;
 
             if (array_key_exists("id", $params)) {
-                $customer = $c->getCustomerById($params["id"]);
+                $customer = $dc->getCustomerById($params["id"]);
                 return json_encode($customer, JSON_PRETTY_PRINT);
             }
             else {
-                return $c->getAllCustomers();
+                return $dc->getAll_Directors();
             }
         }
          function Update($params) {

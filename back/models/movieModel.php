@@ -1,10 +1,9 @@
 <?php
     error_reporting(0);
 
-    require_once 'model.php';
-    require_once 'Share/Validations.php';
+    require_once '../share/Validations.php';
     
-    class MovieModel extends Model implements JsonSerializable {
+    class MovieModel implements JsonSerializable {
 
         private $id;
         private $name;

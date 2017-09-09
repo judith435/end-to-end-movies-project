@@ -1,5 +1,5 @@
 <?php 
-    require_once '../models/customerModel.php';
+    require_once '../models/movieModel.php';
 
     class MovieController {
         private $db;
@@ -8,7 +8,7 @@
             // $this->db = new BL();
         }
         
-        function CreateCustomer($param) {
+        function CreateMovie($param) {
             $c = new MovieModel($param);
             return "hi";
             //$this->db->CreateEntity($c);

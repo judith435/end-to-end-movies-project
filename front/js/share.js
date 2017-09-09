@@ -3,20 +3,24 @@
 var Share = function() {    
     var app = {
         debugMode: true,   
-        movieApi: 'http://localhost:8080/joint/crm/server/crmAPI.php',
+        //movieApi: 'http://localhost:8080/joint/crm/server/crmAPI.php',
         //movieApi: 'http://localhost/crm/server/crmAPI.php',
-        //movieApi: 'http://localhost/joint/crm/server/crmAPI.php',
+        movieApi: 'http://localhost/joint/end-to-end-movies-project/back/api/api.php',
         }
 
      return {
         Get_Directors: function (CallBack_function){
-                        var resulti = "";
+                        var ajaxData = {
+                            ctrl: 'director',
+                            action: 'getDirectors'
+                        };
+
                         $.ajax({    
-                            type: 'POST',
+                            type: 'GET',
                             url: app.movieApi,
-                            data: {action: 'getProducts'},
-                            success: function(getProducts_response) {
-                                CallBack_function(getProducts_response); 
+                            data: ajaxData,
+                            success: function(getDirectors_response) {
+                                CallBack_function(getDirectors_response); 
                             },
                             error: function(data){
                                 alert("error: " + data); //===Show Error Message====

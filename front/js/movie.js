@@ -2,6 +2,8 @@
 
 var Movie = (function() {
 
+    var entity = 'movie';
+    
     jQuery(document).ready(function() {
         var share = Share();  
         share.Get_Directors(callback_BuildDDL);
