@@ -1,6 +1,6 @@
 <?php
     require_once 'abstract-api.php';
-    require_once '../controllers/MovieController.php';
+    require_once '../controllers/movieController.php';
 
     class MovieApi extends Api{
 

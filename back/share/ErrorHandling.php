@@ -6,10 +6,16 @@
             Self::LogError($Error);
             $response_array['status'] = 'error';  
             $response_array['message'] =  "server error please contact support center"; 
+            $r =  $response_array;
+            $r3 =  json_encode($response_array);
             echo json_encode($response_array);
         }
 
         private static function LogError($Error) {
+            $fileName = "ErrorLog.txt";
+            if (!file_exists($fileName) ) {
+                $ty = 9;
+              }
             $ErrorFile = fopen("ErrorLog.txt", "a") or die("Unable to open file!");
             $txt = "******************************************************************************************************************************" .PHP_EOL;
             fwrite($ErrorFile, $txt);

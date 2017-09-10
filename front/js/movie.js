@@ -14,9 +14,8 @@ var Movie = (function() {
 
     });
 
-    var callback_BuildDDL = function(callback_data)//(data, textStatus, xhr)    selected='selected'
+    var callback_BuildDDL = function(directors)//(data, textStatus, xhr)    selected='selected'
     {
-            var directors = JSON.parse(callback_data);
             if ($('title').text() == "Create Movie"){
                 $("#DirectorDDL").append("<option value=''>Please Select Director</option>");
             }

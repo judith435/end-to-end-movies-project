@@ -1,0 +1,244 @@
+******************************************************************************************************************************
+Error occured at 2017-09-10 12:56:40
+Trace:
+file: C:\xampp\htdocs\joint\end-to-end-movies-project\back\dal\Connection.php => line: 62 => function: execute => class: PDOStatement => type: ->
+file: C:\xampp\htdocs\joint\end-to-end-movies-project\back\bl\BusinessLogicLayer.php => line: 29 => function: executeSP => class: Connection => type: ->
+file: C:\xampp\htdocs\joint\end-to-end-movies-project\back\controllers\directorController.php => line: 24 => function: get => class: BusinessLogicLayer => type: ::
+file: C:\xampp\htdocs\joint\end-to-end-movies-project\back\api\directors-api.php => line: 20 => function: getAll_Directors => class: DirectorController => type: ->
+file: C:\xampp\htdocs\joint\end-to-end-movies-project\back\api\abstract-api.php => line: 13 => function: Read => class: DirectorApi => type: ->
+file: C:\xampp\htdocs\joint\end-to-end-movies-project\back\api\api.php => line: 18 => function: gateway => class: Api => type: ->
+Message: SQLSTATE[42000]: Syntax error or access violation: 1305 PROCEDURE movies.get_DirectorsX does not exist
+Code: 42000
+******************************************************************************************************************************
+Error occured at 2017-09-10 13:01:25
+Trace:
+file: C:\xampp\htdocs\joint\end-to-end-movies-project\back\dal\Connection.php => line: 62 => function: execute => class: PDOStatement => type: ->
+file: C:\xampp\htdocs\joint\end-to-end-movies-project\back\bl\BusinessLogicLayer.php => line: 29 => function: executeSP => class: Connection => type: ->
+file: C:\xampp\htdocs\joint\end-to-end-movies-project\back\controllers\directorController.php => line: 24 => function: get => class: BusinessLogicLayer => type: ::
+file: C:\xampp\htdocs\joint\end-to-end-movies-project\back\api\directors-api.php => line: 20 => function: getAll_Directors => class: DirectorController => type: ->
+file: C:\xampp\htdocs\joint\end-to-end-movies-project\back\api\abstract-api.php => line: 13 => function: Read => class: DirectorApi => type: ->
+file: C:\xampp\htdocs\joint\end-to-end-movies-project\back\api\api.php => line: 18 => function: gateway => class: Api => type: ->
+Message: SQLSTATE[42000]: Syntax error or access violation: 1305 PROCEDURE movies.get_DirectorsX does not exist
+Code: 42000
+******************************************************************************************************************************
+Error occured at 2017-09-10 13:04:04
+Trace:
+file: C:\xampp\htdocs\joint\end-to-end-movies-project\back\dal\Connection.php => line: 62 => function: execute => class: PDOStatement => type: ->
+file: C:\xampp\htdocs\joint\end-to-end-movies-project\back\bl\BusinessLogicLayer.php => line: 29 => function: executeSP => class: Connection => type: ->
+file: C:\xampp\htdocs\joint\end-to-end-movies-project\back\controllers\directorController.php => line: 24 => function: get => class: BusinessLogicLayer => type: ::
+file: C:\xampp\htdocs\joint\end-to-end-movies-project\back\api\directors-api.php => line: 20 => function: getAll_Directors => class: DirectorController => type: ->
+file: C:\xampp\htdocs\joint\end-to-end-movies-project\back\api\abstract-api.php => line: 13 => function: Read => class: DirectorApi => type: ->
+file: C:\xampp\htdocs\joint\end-to-end-movies-project\back\api\api.php => line: 18 => function: gateway => class: Api => type: ->
+Message: SQLSTATE[42000]: Syntax error or access violation: 1305 PROCEDURE movies.get_DirectorsX does not exist
+Code: 42000
+******************************************************************************************************************************
+Error occured at 2017-09-10 13:05:06
+Trace:
+file: C:\xampp\htdocs\joint\end-to-end-movies-project\back\dal\Connection.php => line: 62 => function: execute => class: PDOStatement => type: ->
+file: C:\xampp\htdocs\joint\end-to-end-movies-project\back\bl\BusinessLogicLayer.php => line: 29 => function: executeSP => class: Connection => type: ->
+file: C:\xampp\htdocs\joint\end-to-end-movies-project\back\controllers\directorController.php => line: 24 => function: get => class: BusinessLogicLayer => type: ::
+file: C:\xampp\htdocs\joint\end-to-end-movies-project\back\api\directors-api.php => line: 20 => function: getAll_Directors => class: DirectorController => type: ->
+file: C:\xampp\htdocs\joint\end-to-end-movies-project\back\api\abstract-api.php => line: 13 => function: Read => class: DirectorApi => type: ->
+file: C:\xampp\htdocs\joint\end-to-end-movies-project\back\api\api.php => line: 18 => function: gateway => class: Api => type: ->
+Message: SQLSTATE[42000]: Syntax error or access violation: 1305 PROCEDURE movies.get_DirectorsX does not exist
+Code: 42000
+******************************************************************************************************************************
+Error occured at 2017-09-10 13:05:22
+Trace:
+file: C:\xampp\htdocs\joint\end-to-end-movies-project\back\dal\Connection.php => line: 62 => function: execute => class: PDOStatement => type: ->
+file: C:\xampp\htdocs\joint\end-to-end-movies-project\back\bl\BusinessLogicLayer.php => line: 29 => function: executeSP => class: Connection => type: ->
+file: C:\xampp\htdocs\joint\end-to-end-movies-project\back\controllers\directorController.php => line: 24 => function: get => class: BusinessLogicLayer => type: ::
+file: C:\xampp\htdocs\joint\end-to-end-movies-project\back\api\directors-api.php => line: 20 => function: getAll_Directors => class: DirectorController => type: ->
+file: C:\xampp\htdocs\joint\end-to-end-movies-project\back\api\abstract-api.php => line: 13 => function: Read => class: DirectorApi => type: ->
+file: C:\xampp\htdocs\joint\end-to-end-movies-project\back\api\api.php => line: 18 => function: gateway => class: Api => type: ->
+Message: SQLSTATE[42000]: Syntax error or access violation: 1305 PROCEDURE movies.get_DirectorsX does not exist
+Code: 42000
+******************************************************************************************************************************
+Error occured at 2017-09-10 13:07:15
+Trace:
+file: C:\xampp\htdocs\joint\end-to-end-movies-project\back\dal\Connection.php => line: 62 => function: execute => class: PDOStatement => type: ->
+file: C:\xampp\htdocs\joint\end-to-end-movies-project\back\bl\BusinessLogicLayer.php => line: 29 => function: executeSP => class: Connection => type: ->
+file: C:\xampp\htdocs\joint\end-to-end-movies-project\back\controllers\directorController.php => line: 24 => function: get => class: BusinessLogicLayer => type: ::
+file: C:\xampp\htdocs\joint\end-to-end-movies-project\back\api\directors-api.php => line: 20 => function: getAll_Directors => class: DirectorController => type: ->
+file: C:\xampp\htdocs\joint\end-to-end-movies-project\back\api\abstract-api.php => line: 13 => function: Read => class: DirectorApi => type: ->
+file: C:\xampp\htdocs\joint\end-to-end-movies-project\back\api\api.php => line: 18 => function: gateway => class: Api => type: ->
+Message: SQLSTATE[42000]: Syntax error or access violation: 1305 PROCEDURE movies.get_DirectorsX does not exist
+Code: 42000
+******************************************************************************************************************************
+Error occured at 2017-09-10 13:13:56
+Trace:
+file: C:\xampp\htdocs\joint\end-to-end-movies-project\back\dal\Connection.php => line: 62 => function: execute => class: PDOStatement => type: ->
+file: C:\xampp\htdocs\joint\end-to-end-movies-project\back\bl\BusinessLogicLayer.php => line: 29 => function: executeSP => class: Connection => type: ->
+file: C:\xampp\htdocs\joint\end-to-end-movies-project\back\controllers\directorController.php => line: 24 => function: get => class: BusinessLogicLayer => type: ::
+file: C:\xampp\htdocs\joint\end-to-end-movies-project\back\api\directors-api.php => line: 20 => function: getAll_Directors => class: DirectorController => type: ->
+file: C:\xampp\htdocs\joint\end-to-end-movies-project\back\api\abstract-api.php => line: 13 => function: Read => class: DirectorApi => type: ->
+file: C:\xampp\htdocs\joint\end-to-end-movies-project\back\api\api.php => line: 18 => function: gateway => class: Api => type: ->
+Message: SQLSTATE[42000]: Syntax error or access violation: 1305 PROCEDURE movies.get_DirectorsX does not exist
+Code: 42000
+******************************************************************************************************************************
+Error occured at 2017-09-10 13:14:10
+Trace:
+file: C:\xampp\htdocs\joint\end-to-end-movies-project\back\dal\Connection.php => line: 62 => function: execute => class: PDOStatement => type: ->
+file: C:\xampp\htdocs\joint\end-to-end-movies-project\back\bl\BusinessLogicLayer.php => line: 29 => function: executeSP => class: Connection => type: ->
+file: C:\xampp\htdocs\joint\end-to-end-movies-project\back\controllers\directorController.php => line: 24 => function: get => class: BusinessLogicLayer => type: ::
+file: C:\xampp\htdocs\joint\end-to-end-movies-project\back\api\directors-api.php => line: 20 => function: getAll_Directors => class: DirectorController => type: ->
+file: C:\xampp\htdocs\joint\end-to-end-movies-project\back\api\abstract-api.php => line: 13 => function: Read => class: DirectorApi => type: ->
+file: C:\xampp\htdocs\joint\end-to-end-movies-project\back\api\api.php => line: 18 => function: gateway => class: Api => type: ->
+Message: SQLSTATE[42000]: Syntax error or access violation: 1305 PROCEDURE movies.get_DirectorsX does not exist
+Code: 42000
+******************************************************************************************************************************
+Error occured at 2017-09-10 13:14:50
+Trace:
+file: C:\xampp\htdocs\joint\end-to-end-movies-project\back\dal\Connection.php => line: 62 => function: execute => class: PDOStatement => type: ->
+file: C:\xampp\htdocs\joint\end-to-end-movies-project\back\bl\BusinessLogicLayer.php => line: 29 => function: executeSP => class: Connection => type: ->
+file: C:\xampp\htdocs\joint\end-to-end-movies-project\back\controllers\directorController.php => line: 24 => function: get => class: BusinessLogicLayer => type: ::
+file: C:\xampp\htdocs\joint\end-to-end-movies-project\back\api\directors-api.php => line: 20 => function: getAll_Directors => class: DirectorController => type: ->
+file: C:\xampp\htdocs\joint\end-to-end-movies-project\back\api\abstract-api.php => line: 13 => function: Read => class: DirectorApi => type: ->
+file: C:\xampp\htdocs\joint\end-to-end-movies-project\back\api\api.php => line: 18 => function: gateway => class: Api => type: ->
+Message: SQLSTATE[42000]: Syntax error or access violation: 1305 PROCEDURE movies.get_DirectorsX does not exist
+Code: 42000
+******************************************************************************************************************************
+Error occured at 2017-09-10 13:20:33
+Trace:
+file: C:\xampp\htdocs\joint\end-to-end-movies-project\back\dal\Connection.php => line: 62 => function: execute => class: PDOStatement => type: ->
+file: C:\xampp\htdocs\joint\end-to-end-movies-project\back\bl\BusinessLogicLayer.php => line: 29 => function: executeSP => class: Connection => type: ->
+file: C:\xampp\htdocs\joint\end-to-end-movies-project\back\controllers\directorController.php => line: 24 => function: get => class: BusinessLogicLayer => type: ::
+file: C:\xampp\htdocs\joint\end-to-end-movies-project\back\api\directors-api.php => line: 20 => function: getAll_Directors => class: DirectorController => type: ->
+file: C:\xampp\htdocs\joint\end-to-end-movies-project\back\api\abstract-api.php => line: 13 => function: Read => class: DirectorApi => type: ->
+file: C:\xampp\htdocs\joint\end-to-end-movies-project\back\api\api.php => line: 18 => function: gateway => class: Api => type: ->
+Message: SQLSTATE[42000]: Syntax error or access violation: 1305 PROCEDURE movies.get_DirectorsX does not exist
+Code: 42000
+******************************************************************************************************************************
+Error occured at 2017-09-10 13:21:27
+Trace:
+file: C:\xampp\htdocs\joint\end-to-end-movies-project\back\dal\Connection.php => line: 62 => function: execute => class: PDOStatement => type: ->
+file: C:\xampp\htdocs\joint\end-to-end-movies-project\back\bl\BusinessLogicLayer.php => line: 29 => function: executeSP => class: Connection => type: ->
+file: C:\xampp\htdocs\joint\end-to-end-movies-project\back\controllers\directorController.php => line: 24 => function: get => class: BusinessLogicLayer => type: ::
+file: C:\xampp\htdocs\joint\end-to-end-movies-project\back\api\directors-api.php => line: 20 => function: getAll_Directors => class: DirectorController => type: ->
+file: C:\xampp\htdocs\joint\end-to-end-movies-project\back\api\abstract-api.php => line: 13 => function: Read => class: DirectorApi => type: ->
+file: C:\xampp\htdocs\joint\end-to-end-movies-project\back\api\api.php => line: 18 => function: gateway => class: Api => type: ->
+Message: SQLSTATE[42000]: Syntax error or access violation: 1305 PROCEDURE movies.get_DirectorsX does not exist
+Code: 42000
+******************************************************************************************************************************
+Error occured at 2017-09-10 13:22:46
+Trace:
+file: C:\xampp\htdocs\joint\end-to-end-movies-project\back\dal\Connection.php => line: 62 => function: execute => class: PDOStatement => type: ->
+file: C:\xampp\htdocs\joint\end-to-end-movies-project\back\bl\BusinessLogicLayer.php => line: 29 => function: executeSP => class: Connection => type: ->
+file: C:\xampp\htdocs\joint\end-to-end-movies-project\back\controllers\directorController.php => line: 24 => function: get => class: BusinessLogicLayer => type: ::
+file: C:\xampp\htdocs\joint\end-to-end-movies-project\back\api\directors-api.php => line: 20 => function: getAll_Directors => class: DirectorController => type: ->
+file: C:\xampp\htdocs\joint\end-to-end-movies-project\back\api\abstract-api.php => line: 13 => function: Read => class: DirectorApi => type: ->
+file: C:\xampp\htdocs\joint\end-to-end-movies-project\back\api\api.php => line: 18 => function: gateway => class: Api => type: ->
+Message: SQLSTATE[42000]: Syntax error or access violation: 1305 PROCEDURE movies.get_DirectorsX does not exist
+Code: 42000
+******************************************************************************************************************************
+Error occured at 2017-09-10 13:23:27
+Trace:
+file: C:\xampp\htdocs\joint\end-to-end-movies-project\back\dal\Connection.php => line: 62 => function: execute => class: PDOStatement => type: ->
+file: C:\xampp\htdocs\joint\end-to-end-movies-project\back\bl\BusinessLogicLayer.php => line: 29 => function: executeSP => class: Connection => type: ->
+file: C:\xampp\htdocs\joint\end-to-end-movies-project\back\controllers\directorController.php => line: 24 => function: get => class: BusinessLogicLayer => type: ::
+file: C:\xampp\htdocs\joint\end-to-end-movies-project\back\api\directors-api.php => line: 20 => function: getAll_Directors => class: DirectorController => type: ->
+file: C:\xampp\htdocs\joint\end-to-end-movies-project\back\api\abstract-api.php => line: 13 => function: Read => class: DirectorApi => type: ->
+file: C:\xampp\htdocs\joint\end-to-end-movies-project\back\api\api.php => line: 18 => function: gateway => class: Api => type: ->
+Message: SQLSTATE[42000]: Syntax error or access violation: 1305 PROCEDURE movies.get_DirectorsX does not exist
+Code: 42000
+******************************************************************************************************************************
+Error occured at 2017-09-10 13:24:09
+Trace:
+file: C:\xampp\htdocs\joint\end-to-end-movies-project\back\dal\Connection.php => line: 62 => function: execute => class: PDOStatement => type: ->
+file: C:\xampp\htdocs\joint\end-to-end-movies-project\back\bl\BusinessLogicLayer.php => line: 29 => function: executeSP => class: Connection => type: ->
+file: C:\xampp\htdocs\joint\end-to-end-movies-project\back\controllers\directorController.php => line: 24 => function: get => class: BusinessLogicLayer => type: ::
+file: C:\xampp\htdocs\joint\end-to-end-movies-project\back\api\directors-api.php => line: 20 => function: getAll_Directors => class: DirectorController => type: ->
+file: C:\xampp\htdocs\joint\end-to-end-movies-project\back\api\abstract-api.php => line: 13 => function: Read => class: DirectorApi => type: ->
+file: C:\xampp\htdocs\joint\end-to-end-movies-project\back\api\api.php => line: 18 => function: gateway => class: Api => type: ->
+Message: SQLSTATE[42000]: Syntax error or access violation: 1305 PROCEDURE movies.get_DirectorsX does not exist
+Code: 42000
+******************************************************************************************************************************
+Error occured at 2017-09-10 13:24:14
+Trace:
+file: C:\xampp\htdocs\joint\end-to-end-movies-project\back\dal\Connection.php => line: 62 => function: execute => class: PDOStatement => type: ->
+file: C:\xampp\htdocs\joint\end-to-end-movies-project\back\bl\BusinessLogicLayer.php => line: 29 => function: executeSP => class: Connection => type: ->
+file: C:\xampp\htdocs\joint\end-to-end-movies-project\back\controllers\directorController.php => line: 24 => function: get => class: BusinessLogicLayer => type: ::
+file: C:\xampp\htdocs\joint\end-to-end-movies-project\back\api\directors-api.php => line: 20 => function: getAll_Directors => class: DirectorController => type: ->
+file: C:\xampp\htdocs\joint\end-to-end-movies-project\back\api\abstract-api.php => line: 13 => function: Read => class: DirectorApi => type: ->
+file: C:\xampp\htdocs\joint\end-to-end-movies-project\back\api\api.php => line: 18 => function: gateway => class: Api => type: ->
+Message: SQLSTATE[42000]: Syntax error or access violation: 1305 PROCEDURE movies.get_DirectorsX does not exist
+Code: 42000
+******************************************************************************************************************************
+Error occured at 2017-09-10 13:24:25
+Trace:
+file: C:\xampp\htdocs\joint\end-to-end-movies-project\back\dal\Connection.php => line: 62 => function: execute => class: PDOStatement => type: ->
+file: C:\xampp\htdocs\joint\end-to-end-movies-project\back\bl\BusinessLogicLayer.php => line: 29 => function: executeSP => class: Connection => type: ->
+file: C:\xampp\htdocs\joint\end-to-end-movies-project\back\controllers\directorController.php => line: 24 => function: get => class: BusinessLogicLayer => type: ::
+file: C:\xampp\htdocs\joint\end-to-end-movies-project\back\api\directors-api.php => line: 20 => function: getAll_Directors => class: DirectorController => type: ->
+file: C:\xampp\htdocs\joint\end-to-end-movies-project\back\api\abstract-api.php => line: 13 => function: Read => class: DirectorApi => type: ->
+file: C:\xampp\htdocs\joint\end-to-end-movies-project\back\api\api.php => line: 18 => function: gateway => class: Api => type: ->
+Message: SQLSTATE[42000]: Syntax error or access violation: 1305 PROCEDURE movies.get_DirectorsX does not exist
+Code: 42000
+******************************************************************************************************************************
+Error occured at 2017-09-10 13:24:57
+Trace:
+file: C:\xampp\htdocs\joint\end-to-end-movies-project\back\dal\Connection.php => line: 62 => function: execute => class: PDOStatement => type: ->
+file: C:\xampp\htdocs\joint\end-to-end-movies-project\back\bl\BusinessLogicLayer.php => line: 29 => function: executeSP => class: Connection => type: ->
+file: C:\xampp\htdocs\joint\end-to-end-movies-project\back\controllers\directorController.php => line: 24 => function: get => class: BusinessLogicLayer => type: ::
+file: C:\xampp\htdocs\joint\end-to-end-movies-project\back\api\directors-api.php => line: 20 => function: getAll_Directors => class: DirectorController => type: ->
+file: C:\xampp\htdocs\joint\end-to-end-movies-project\back\api\abstract-api.php => line: 13 => function: Read => class: DirectorApi => type: ->
+file: C:\xampp\htdocs\joint\end-to-end-movies-project\back\api\api.php => line: 18 => function: gateway => class: Api => type: ->
+Message: SQLSTATE[42000]: Syntax error or access violation: 1305 PROCEDURE movies.get_DirectorsX does not exist
+Code: 42000
+******************************************************************************************************************************
+Error occured at 2017-09-10 13:25:32
+Trace:
+file: C:\xampp\htdocs\joint\end-to-end-movies-project\back\dal\Connection.php => line: 62 => function: execute => class: PDOStatement => type: ->
+file: C:\xampp\htdocs\joint\end-to-end-movies-project\back\bl\BusinessLogicLayer.php => line: 29 => function: executeSP => class: Connection => type: ->
+file: C:\xampp\htdocs\joint\end-to-end-movies-project\back\controllers\directorController.php => line: 24 => function: get => class: BusinessLogicLayer => type: ::
+file: C:\xampp\htdocs\joint\end-to-end-movies-project\back\api\directors-api.php => line: 20 => function: getAll_Directors => class: DirectorController => type: ->
+file: C:\xampp\htdocs\joint\end-to-end-movies-project\back\api\abstract-api.php => line: 13 => function: Read => class: DirectorApi => type: ->
+file: C:\xampp\htdocs\joint\end-to-end-movies-project\back\api\api.php => line: 18 => function: gateway => class: Api => type: ->
+Message: SQLSTATE[42000]: Syntax error or access violation: 1305 PROCEDURE movies.get_DirectorsX does not exist
+Code: 42000
+******************************************************************************************************************************
+Error occured at 2017-09-10 13:45:39
+Trace:
+file: C:\xampp\htdocs\joint\end-to-end-movies-project\back\dal\Connection.php => line: 62 => function: execute => class: PDOStatement => type: ->
+file: C:\xampp\htdocs\joint\end-to-end-movies-project\back\bl\BusinessLogicLayer.php => line: 29 => function: executeSP => class: Connection => type: ->
+file: C:\xampp\htdocs\joint\end-to-end-movies-project\back\controllers\directorController.php => line: 24 => function: get => class: BusinessLogicLayer => type: ::
+file: C:\xampp\htdocs\joint\end-to-end-movies-project\back\api\directors-api.php => line: 20 => function: getAll_Directors => class: DirectorController => type: ->
+file: C:\xampp\htdocs\joint\end-to-end-movies-project\back\api\abstract-api.php => line: 13 => function: Read => class: DirectorApi => type: ->
+file: C:\xampp\htdocs\joint\end-to-end-movies-project\back\api\api.php => line: 18 => function: gateway => class: Api => type: ->
+Message: SQLSTATE[42000]: Syntax error or access violation: 1305 PROCEDURE movies.get_Directorsx does not exist
+Code: 42000
+******************************************************************************************************************************
+Error occured at 2017-09-10 13:45:44
+Trace:
+file: C:\xampp\htdocs\joint\end-to-end-movies-project\back\dal\Connection.php => line: 62 => function: execute => class: PDOStatement => type: ->
+file: C:\xampp\htdocs\joint\end-to-end-movies-project\back\bl\BusinessLogicLayer.php => line: 29 => function: executeSP => class: Connection => type: ->
+file: C:\xampp\htdocs\joint\end-to-end-movies-project\back\controllers\directorController.php => line: 24 => function: get => class: BusinessLogicLayer => type: ::
+file: C:\xampp\htdocs\joint\end-to-end-movies-project\back\api\directors-api.php => line: 20 => function: getAll_Directors => class: DirectorController => type: ->
+file: C:\xampp\htdocs\joint\end-to-end-movies-project\back\api\abstract-api.php => line: 13 => function: Read => class: DirectorApi => type: ->
+file: C:\xampp\htdocs\joint\end-to-end-movies-project\back\api\api.php => line: 18 => function: gateway => class: Api => type: ->
+Message: SQLSTATE[42000]: Syntax error or access violation: 1305 PROCEDURE movies.get_Directorsx does not exist
+Code: 42000
+******************************************************************************************************************************
+Error occured at 2017-09-10 13:54:37
+Trace:
+file: C:\xampp\htdocs\joint\end-to-end-movies-project\back\dal\Connection.php => line: 62 => function: execute => class: PDOStatement => type: ->
+file: C:\xampp\htdocs\joint\end-to-end-movies-project\back\bl\BusinessLogicLayer.php => line: 29 => function: executeSP => class: Connection => type: ->
+file: C:\xampp\htdocs\joint\end-to-end-movies-project\back\controllers\directorController.php => line: 24 => function: get => class: BusinessLogicLayer => type: ::
+file: C:\xampp\htdocs\joint\end-to-end-movies-project\back\api\directors-api.php => line: 20 => function: getAll_Directors => class: DirectorController => type: ->
+file: C:\xampp\htdocs\joint\end-to-end-movies-project\back\api\abstract-api.php => line: 13 => function: Read => class: DirectorApi => type: ->
+file: C:\xampp\htdocs\joint\end-to-end-movies-project\back\api\api.php => line: 18 => function: gateway => class: Api => type: ->
+Message: SQLSTATE[42000]: Syntax error or access violation: 1305 PROCEDURE movies.get_DirectorsQ does not exist
+Code: 42000
+******************************************************************************************************************************
+******************************************************************************************************************************
+Error occured at 2017-09-10 14:00:32
+Trace:
+file: C:\xampp\htdocs\joint\end-to-end-movies-project\back\dal\Connection.php => line: 62 => function: execute => class: PDOStatement => type: ->
+file: C:\xampp\htdocs\joint\end-to-end-movies-project\back\bl\BusinessLogicLayer.php => line: 29 => function: executeSP => class: Connection => type: ->
+file: C:\xampp\htdocs\joint\end-to-end-movies-project\back\controllers\directorController.php => line: 24 => function: get => class: BusinessLogicLayer => type: ::
+file: C:\xampp\htdocs\joint\end-to-end-movies-project\back\api\directors-api.php => line: 20 => function: getAll_Directors => class: DirectorController => type: ->
+file: C:\xampp\htdocs\joint\end-to-end-movies-project\back\api\abstract-api.php => line: 13 => function: Read => class: DirectorApi => type: ->
+file: C:\xampp\htdocs\joint\end-to-end-movies-project\back\api\api.php => line: 18 => function: gateway => class: Api => type: ->
+Message: SQLSTATE[42000]: Syntax error or access violation: 1305 PROCEDURE movies.get_DirectorsQ does not exist
+Code: 42000
+******************************************************************************************************************************
