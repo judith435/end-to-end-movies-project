@@ -1,20 +1,24 @@
 'use strict'
 
-var Movie = (function() {
+var updateMovie = (function() {
 
     var entity = 'movie';
     
     jQuery(document).ready(function() {
         var share = Share();  
         share.Get_Directors(callback_BuildDDL);
+        
         if ($('title').text() == "Update Movie"){
             Update_Lead();
-
         }
-
+        if ($('title').text() == "Create Movie"){
+            $.ajax('../../templates/create-lead-template.html').done(function(data) {
+                $('#CreateUpdateDivFields').prepend(data);
+            });
+        }
     });
 
-    var callback_BuildDDL = function(directors)//(data, textStatus, xhr)    selected='selected'
+    var callback_BuildDDL = function(directors)
     {
             if ($('title').text() == "Create Movie"){
                 $("#DirectorDDL").append("<option value=''>Please Select Director</option>");

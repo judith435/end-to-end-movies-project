@@ -1,47 +1,55 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <title>Create Movie</title>
-    <link rel="stylesheet"    href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" 
-    integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"      crossorigin="anonymous">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>    
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" 
-        integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous">
-    </script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.17.0/jquery.validate.js"></script>
-    <!-- site css file placed after bootstrap files to enable overriding of bootstrap styles --> 
-    <link rel="stylesheet/less" type="text/css" href="../../styles/movie.less" />
-    <script src="//cdnjs.cloudflare.com/ajax/libs/less.js/2.7.2/less.min.js"></script>
-    
-</head>
-<body>
-    <form id="frmCUD">
-        <div class="container">
-                <h1>Create Movie</h1>  
-                <div class="form-group row">
-                    <label for="movieName" class="col-xs-2 col-sm-2 col-md-3 col-lg-3 col-form-label">Movie Name</label>
-                    <div class="col-xs-10 col-sm-10 col-md-9 col-lg-9" >
-                        <input type="text" class="form-control" id="movieName" name="movieName" placeholder="Enter new Movie name" maxlength="50">
-                        <label class="error error-td  col-form-label"></label>
-                    </div>
-                </div>
-                <div class="form-group row">
-                    <label for="DirectorDDL" class="col-xs-2 col-sm-2 col-md-3 col-lg-3 col-form-label">Movie Director</label>
-                    <div class="col-xs-10 col-sm-10 col-md-9 col-lg-9">
-                        <select id="DirectorDDL"  class="form-control" name="DirectorDDL"></select>
-                        <label class="error error-td"></label>
-                    </div>
-                </div>
-                <div class="form-group row">
-                    <div class="offset-sm-2 col-sm-10">
-                        <input  type="hidden"  name="action" value="AddMovie" >
-                        <button class="btnAdd btn btn-primary"  name="action" value="AddMovie">Add Movie</button>
-                    </div>
-                </div>
-        </div>
-    </form>
-    <script src='../../js/share.js'></script>  
-    <script src='../../js/movie.js'></script> 
-    <script src='../../js/validations.js'></script> 
-</body>
+    <head>
+        <title>Create Movie</title>
+        <link rel="stylesheet"    href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" 
+        integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"      crossorigin="anonymous">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>    
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" 
+            integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous">
+        </script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.17.0/jquery.validate.js"></script>
+        <!-- site css file placed after bootstrap files to enable overriding of bootstrap styles --> 
+        <link rel="stylesheet/less" type="text/css" href="../../styles/movie.less" />
+        <script src="//cdnjs.cloudflare.com/ajax/libs/less.js/2.7.2/less.min.js"></script>
+        
+    </head>
+    <body>
+        <h1>Create Movie</h1> 
+        <form id="frmCU">
+            <div class="container">
+                <div id="CreateUpdateDivFields"></div>
+            </div>
+        </form>
+        <script src='../../js/director/directorShare.js'></script>  
+        <script src='../../js/movie/createMovie.js'></script> 
+        <script src='../../js/share/validations.js'></script> 
+    </body>
 </html>
+
+
+<!-- <form id="frmCUD">
+    <div class="container">
+            <h1>Create Movie</h1>  
+            <div class="form-group row">
+                <label for="movieName" class="col-xs-2 col-sm-2 col-md-3 col-lg-3 col-form-label">Movie Name</label>
+                <div class="col-xs-10 col-sm-10 col-md-9 col-lg-9" >
+                    <input type="text" class="form-control" id="movieName" name="movieName" placeholder="Enter new Movie name" maxlength="50">
+                    <label class="error error-td  col-form-label"></label>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="DirectorDDL" class="col-xs-2 col-sm-2 col-md-3 col-lg-3 col-form-label">Movie Director</label>
+                <div class="col-xs-10 col-sm-10 col-md-9 col-lg-9">
+                    <select id="DirectorDDL"  class="form-control" name="DirectorDDL"></select>
+                    <label class="error error-td"></label>
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="offset-sm-2 col-sm-10">
+                    <input  type="hidden"  name="action" value="AddMovie" >
+                    <button class="btnAdd btn btn-primary"  name="action" value="AddMovie">Add Movie</button>
+                </div>
+            </div>
+    </div>
+</form> -->

@@ -4,9 +4,20 @@
 
     class MovieApi extends Api{
 
-        function Create($params) {
-            $c = new MovierController;
-            $c->CreateCustomer($param);
+        function Create($params, $errorInInput) {
+            $mc = new MovierController;
+            $mc->create_update_Movie($param, $errorInInput);
+
+            if ($errorInInput != "") {
+                $response_array['status'] = 'error';  
+                $response_array['action'] = $action;
+                $response_array['message'] = 'Error from Server: ' . $errorInInput; 
+            }
+            else {
+                $response_array['status'] = 'ok'; 
+                $response_array['action'] = $action;
+                $response_array['message'] = 'movie' . ($action == "AddLead" ? ' added ' : ' updated ')  . 'successfully'; 
+            }
         }
 
         function Read($params) {
@@ -20,8 +31,8 @@
                 return $c->getAllCustomers();
             }
         }
-         function Update($params) {
-             // TODO
+         function Update($params, $errorInInput) {
+
          }
          function Delete($params) {
             // TODO

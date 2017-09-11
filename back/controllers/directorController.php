@@ -21,7 +21,7 @@
                     $emptyParms = []; 
                     $allDirectors = array();
                     
-                    $resultSet = BusinessLogicLayer::get($this->get_dbName(), 'get_DirectorsQ', $emptyParms);
+                    $resultSet = BusinessLogicLayer::get($this->get_dbName(), 'get_Directors', $emptyParms);
                     $errorInInput = "";
                     while ($row = $resultSet->fetch())
                     {                           

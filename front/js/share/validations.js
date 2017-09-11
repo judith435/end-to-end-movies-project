@@ -1,5 +1,5 @@
 $(document).ready(function () {
-    validator = $("#frmCUD").validate({
+    validator = $("#frmCU").validate({
       rules:  {
         movieName: {
           required: true,
@@ -15,7 +15,7 @@ $(document).ready(function () {
         DirectorDDL: "Please select director"
       },
       submitHandler: function() {
-        //   crmGeneral.ajaxSubmit("UpdateInsert");
+           generalMovie.ajaxSubmit("UpdateInsert");
         }
     });
   });

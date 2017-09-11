@@ -1,6 +1,6 @@
 'use strict'
 
-var Share = function() {    
+var directorShare = function() {    
     var app = {
         debugMode: true,   
         movieApi: 'http://localhost:8080/joint/end-to-end-movies-project/back/api/api.php',

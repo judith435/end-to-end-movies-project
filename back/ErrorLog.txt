@@ -1,0 +1,11 @@
+******************************************************************************************************************************
+Error occured at 2017-09-11 09:26:15
+Trace:
+file: C:\xampp\htdocs\joint\end-to-end-movies-project\back\dal\Connection.php => line: 62 => function: execute => class: PDOStatement => type: ->
+file: C:\xampp\htdocs\joint\end-to-end-movies-project\back\bl\BusinessLogicLayer.php => line: 29 => function: executeSP => class: Connection => type: ->
+file: C:\xampp\htdocs\joint\end-to-end-movies-project\back\controllers\directorController.php => line: 24 => function: get => class: BusinessLogicLayer => type: ::
+file: C:\xampp\htdocs\joint\end-to-end-movies-project\back\api\directors-api.php => line: 20 => function: getAll_Directors => class: DirectorController => type: ->
+file: C:\xampp\htdocs\joint\end-to-end-movies-project\back\api\abstract-api.php => line: 13 => function: Read => class: DirectorApi => type: ->
+file: C:\xampp\htdocs\joint\end-to-end-movies-project\back\api\api.php => line: 18 => function: gateway => class: Api => type: ->
+Message: SQLSTATE[42000]: Syntax error or access violation: 1305 PROCEDURE movies.get_DirectorsQ does not exist
+Code: 42000

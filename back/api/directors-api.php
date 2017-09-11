@@ -4,7 +4,7 @@
 
     class DirectorApi extends Api{
 
-        function Create($params) {
+        function Create($params,$errorInInput) {
             $c = new DirectorController;
             $c->CreateCustomer($param);
         }
@@ -13,14 +13,14 @@
             $dc = new DirectorController;
 
             if (array_key_exists("id", $params)) {
-                $customer = $dc->getCustomerById($params["id"]);
-                return json_encode($customer, JSON_PRETTY_PRINT);
+                // $customer = $dc->getCustomerById($params["id"]);
+                // return json_encode($customer, JSON_PRETTY_PRINT);
             }
             else {
                 return $dc->getAll_Directors();
             }
         }
-         function Update($params) {
+         function Update($params, $errorInInput) {
              // TODO
          }
          function Delete($params) {

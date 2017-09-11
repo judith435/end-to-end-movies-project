@@ -4,10 +4,11 @@
 
 
         public static function nameOK($name) {
-            if($name == '')
+            if (preg_match("/[a-z]/i",$name)) //name must contain at least one letter
             {
                 return false;
             }
+            
             return true;
         }
 
