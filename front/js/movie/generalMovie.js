@@ -1,9 +1,9 @@
 var generalMovie = (function() {
     var app = {
         debugMode: true,   
-        movieApi: 'http://localhost:8080/joint/end-to-end-movies-project/back/api/api.php',
+        //movieApi: 'http://localhost:8080/joint/end-to-end-movies-project/back/api/api.php',
         //movieApi: 'http://localhost/crm/server/crmAPI.php',
-        //movieApi: 'http://localhost/joint/end-to-end-movies-project/back/api/api.php',
+        movieApi: 'http://localhost/joint/end-to-end-movies-project/back/api/api.php',
         }
 
 

@@ -4,7 +4,7 @@
 
 
         public static function nameOK($name) {
-            if (preg_match("/[a-z]/i",$name)) //name must contain at least one letter
+            if (!preg_match("/[a-z]/i",$name)) //name must contain at least one letter
             {
                 return false;
             }
@@ -13,7 +13,7 @@
         }
 
         public static function optionSelected($option) {
-            if($option == '0')
+            if ($option == '0')
             {
                 return false;
             }

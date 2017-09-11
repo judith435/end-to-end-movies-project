@@ -5,10 +5,10 @@ var createMovie = (function() {
     var entity = 'movie';
     
     jQuery(document).ready(function() {
-        var director_share = directorShare();  
+        var director_share = generalDirector();  
         director_share.Get_Directors(callback_BuildDDL);
         
-        $.ajax('../../templates/create-lead-template.html').done(function(data) {
+        $.ajax('../../templates/create-movie-template.html').done(function(data) {
             $('#CreateUpdateDivFields').prepend(data);
         });
     });
@@ -78,7 +78,7 @@ var createMovie = (function() {
     }
 
     function Update_Lead(){
-        $.ajax('../../templates/create-lead-template.html').done(function(data) {
+        $.ajax('../../templates/create-movie-template.html').done(function(data) {
             $('#CreateUpdateDivFields').prepend(data);
         });
         $("#btnUpdateLead , #leadTitle, #CreateUpdateDivFields").hide();

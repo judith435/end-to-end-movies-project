@@ -10,10 +10,9 @@
         private $director_id;
         private $director_name;
 
-        function __construct($params, $errorInInput) {
-            parent::__construct('getMovies');
-            $this->setID($params["id"]);
-            $this->setName($params["name"], $errorInInput);
+        function __construct($params, &$errorInInput) {
+            $this->setID($params["movie_id"]);
+            $this->setName($params["movie_name"], $errorInInput);
             $this->setDirector_ID($params["director_id"], $errorInInput); 
             $this->setDirector_Name($params["director_name"]); 
         }
@@ -23,10 +22,10 @@
         }
 
         public function setName($mv_name, &$errorInInput){
-            if(!Validations::nameOK($ld_name)){
-                $errorInInput .= " Movie Name cannot be empty\n";
+            if(!Validations::nameOK($mv_name)){
+                $errorInInput .= " Movie Name must contain at least one letter\n";
             }
-            $this->lead_name = $ld_name;
+            $this->name = $mv_name;
         }
 
         public function setDirector_ID($director_id, &$errorInInput){

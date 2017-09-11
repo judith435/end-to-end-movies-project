@@ -1,18 +1,18 @@
 'use strict'
 
-var directorShare = function() {    
+var generalDirector = function() {    
     var app = {
         debugMode: true,   
-        movieApi: 'http://localhost:8080/joint/end-to-end-movies-project/back/api/api.php',
+        //movieApi: 'http://localhost:8080/joint/end-to-end-movies-project/back/api/api.php',
         //movieApi: 'http://localhost/crm/server/crmAPI.php',
-        //movieApi: 'http://localhost/joint/end-to-end-movies-project/back/api/api.php',
+        movieApi: 'http://localhost/joint/end-to-end-movies-project/back/api/api.php',
         }
 
      return {
         Get_Directors: function (CallBack_function){
                         var ajaxData = {
-                            ctrl: 'director',
-                            action: 'getDirectors'
+                            ctrl: 'director'//,
+                            //action: 'getDirectors'
                         };
 
                         $.ajax({    

@@ -12,7 +12,7 @@ var updateMovie = (function() {
             Update_Lead();
         }
         if ($('title').text() == "Create Movie"){
-            $.ajax('../../templates/create-lead-template.html').done(function(data) {
+            $.ajax('../../templates/create-movie-template.html').done(function(data) {
                 $('#CreateUpdateDivFields').prepend(data);
             });
         }
@@ -83,7 +83,7 @@ var updateMovie = (function() {
     }
 
     function Update_Lead(){
-        $.ajax('../../templates/create-lead-template.html').done(function(data) {
+        $.ajax('../../templates/create-movie-template.html').done(function(data) {
             $('#CreateUpdateDivFields').prepend(data);
         });
         $("#btnUpdateLead , #leadTitle, #CreateUpdateDivFields").hide();
