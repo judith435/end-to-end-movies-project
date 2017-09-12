@@ -4,7 +4,6 @@ $(document).ready(function () {
         movie_name: {
           required: true,
           minlength: 3 
-          // letters: true
         },
         director_id: {
           required: true

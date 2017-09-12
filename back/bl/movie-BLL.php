@@ -1,19 +1,17 @@
-<?php 
+<?php
+    error_reporting(0);
 
-    require_once '../models/movieModel.php';
+    // require_once '../dal/Connection.php';
+    // require_once '../dal/PDO_Parm.php';
 
-    class MovieController {
+    class movie_BLL  extends BusinessLogicLayer{
 
-        function create_update_Movie($param, &$errorInInput) {
+        function __construct() {
+            parent::__construct('movie_project');
+        }
+
+        public function update_movie($SP_parms) {
             try {
-                    $Movie = new MovieModel($param, $errorInInput);
-                    if ($errorInInput != "") { //error found in data members of movie object
-                        return;
-                    }
-
-                    $movie_bll = new movie_BLL();
-                    $returnMSG = $dir_bll->get_directors();
-
                     // $Parms =  array();
                     // array_push($Parms, new PDO_Parm("lead_name", $Lead -> getLeadName(), 'string')); 
                     // array_push($Parms, new PDO_Parm("lead_phone", $Lead -> getLeadPhone(), 'string'));
@@ -28,27 +26,12 @@
                     // }
                     // $spName = $action == "AddLead" ? 'insert_lead' : 'update_lead';
                     // BusinessLogicLayer::update('crm', $spName, $Parms);
-
-            }
+        }
             catch (Exception $error) {
                 throw $error;
             }
-
-        }
-
-        function getAllCustomers() {
-            
-        }
-
-        function getCustomerById($id) {
-            $array = [
-                "id" => $id,
-                "name" => MD5($id)
-            ];
-           
-            $c = new CustomerModel($array);
-            return $c->jsonSerialize();
         }
     }
-
+    
 ?>
+

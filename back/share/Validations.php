@@ -13,10 +13,11 @@
         }
 
         public static function optionSelected($option) {
-            if ($option == '0')
+            if ($option == "")
             {
                 return false;
             }
             return true;
         }
     }
+?>

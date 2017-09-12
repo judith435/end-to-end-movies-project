@@ -4,29 +4,36 @@
     require_once '../dal/Connection.php';
     require_once '../dal/PDO_Parm.php';
 
-
-
     class BusinessLogicLayer {
-        // REFACTOR: use Builder pattern
-        /*
-            $table_name: string
-            $arr: [field] => [value]
-            $conds: [field] => []
-        */
-        public static function update($db, $spName, $SP_parms) {
+
+        private $dbName;
+        
+        function __construct($dbName) {
+            $this->set_dbName($dbName);
+        }
+
+        public function set_dbName($dbName){
+            $this->dbName = $dbName;
+        }
+
+        public function get_dbName(){
+            return $this->dbName;
+        }
+        
+        public function update($db, $spName, $SP_parms) {
             try {
-                $con = new Connection($db);  
-                $con->executeSP($spName, $SP_parms);
+                    $con = new Connection($db);  
+                    $con->executeSP($spName, $SP_parms);
             }
             catch (Exception $error) {
                 throw $error;
             }
         }
 
-        public static function get($db, $spName, $SP_parms) {
+        public function get($db, $spName, $SP_parms) {
             try {
-                $con = new Connection($db);  
-                return $con->executeSP($spName, $SP_parms);
+                    $con = new Connection($db);  
+                    return $con->executeSP($spName, $SP_parms);
             }
             catch (Exception $error) {
                 throw $error;

@@ -1,14 +1,9 @@
 <?php 
-    require_once 'controller.php';
     require_once '../models/directorModel.php';
-    require_once '../bl/BusinessLogicLayer.php';
+    require_once '../bl/director-BLL.php';
     
-    class DirectorController extends Controller{
+    class DirectorController {
 
-        function __construct() {
-            parent::__construct('movies');
-        }
-        
         // function CreateDirector($param) {
         //     $c = new DirectorModel($param);
         //     return "hi";
@@ -18,11 +13,13 @@
 
         function getAll_Directors() {
             try {
-                    $emptyParms = []; 
-                    $allDirectors = array();
                     
-                    $resultSet = BusinessLogicLayer::get($this->get_dbName(), 'get_Directors', $emptyParms);
-                    $errorInInput = "";
+                    $dir_bll = new director_BLL();
+                    $resultSet = $dir_bll->get_directors();
+
+                    $allDirectors = array();
+                    $errorInInput = ""; //use to check no problems in directors data retrieved from db -> if yes send error back to client
+
                     while ($row = $resultSet->fetch())
                     {                           
                          array_push($allDirectors, new DirectorModel(["id" => $row['id'], "name" => $row['name']], $errorInInput));
@@ -47,3 +44,5 @@
 
 
     }
+
+?>
