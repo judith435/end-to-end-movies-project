@@ -8,7 +8,7 @@
 
             $errorInInput = "";
             $mc = new MovieController;
-            $mc->create_update_Movie($params, $errorInInput);
+            $mc->create_update_Movie($params, "Create", $errorInInput);
 
             if ($errorInInput != "") {
                 $response_array['status'] = 'error';  
@@ -25,7 +25,8 @@
         }
 
         function Read($params) {
-            $c = new MovieController;
+
+            $mc = new MovieController;
 
             //if (array_key_exists("id", $params)) {
             if (false) {
@@ -33,14 +34,13 @@
                 return json_encode($customer, JSON_PRETTY_PRINT);
             }
             else {
-                return $c->getAllCustomers();
+                return $mc->getAll_Movies();
             }
         }
          function Update($params) {
 
          }
          function Delete($params) {
-            // TODO
          }
     }
 ?>

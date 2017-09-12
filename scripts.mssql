@@ -1,60 +1,64 @@
--- MySQL Workbench Forward Engineering
-
 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL,ALLOW_INVALID_DATES';
 
--- -----------------------------------------------------
--- Schema mydb
--- -----------------------------------------------------
--- -----------------------------------------------------
--- Schema movies
--- -----------------------------------------------------
+CREATE SCHEMA IF NOT EXISTS `movie_project` DEFAULT CHARACTER SET latin1 ;
+USE `movie_project` ;
 
 -- -----------------------------------------------------
--- Schema movies
+-- Table `movie_project`.`directors`
 -- -----------------------------------------------------
-CREATE SCHEMA IF NOT EXISTS `movies` DEFAULT CHARACTER SET latin1 ;
-USE `movies` ;
-
--- -----------------------------------------------------
--- Table `movies`.`directors`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `movies`.`directors` (
-  `id` INT(11) NOT NULL AUTO_INCREMENT,
-  `name` VARCHAR(50) NOT NULL,
-  PRIMARY KEY (`id`))
+CREATE  TABLE IF NOT EXISTS `movie_project`.`directors` (
+  `id` INT(11) NOT NULL AUTO_INCREMENT ,
+  `name` VARCHAR(50) NOT NULL ,
+  PRIMARY KEY (`id`) )
 ENGINE = InnoDB
-AUTO_INCREMENT = 6
+AUTO_INCREMENT = 13
 DEFAULT CHARACTER SET = latin1;
 
 
 -- -----------------------------------------------------
--- Table `movies`.`movies`
+-- Table `movie_project`.`movies`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `movies`.`movies` (
-  `id` INT(11) NOT NULL AUTO_INCREMENT,
-  `name` VARCHAR(50) NOT NULL,
-  `d_id` INT(11) NOT NULL,
-  PRIMARY KEY (`id`),
-  INDEX `fk_Movies_Directors_idx` (`d_id` ASC),
-  CONSTRAINT `fk_Movies_Directors`
-    FOREIGN KEY (`d_id`)
-    REFERENCES `movies`.`directors` (`id`)
+CREATE  TABLE IF NOT EXISTS `movie_project`.`movies` (
+  `id` INT(11) NOT NULL AUTO_INCREMENT ,
+  `name` VARCHAR(50) NOT NULL ,
+  `d_id` INT(11) NOT NULL ,
+  PRIMARY KEY (`id`) ,
+  INDEX `fk_movies_directors_idx` (`d_id` ASC) ,
+  CONSTRAINT `fk_movies_directors`
+    FOREIGN KEY (`d_id` )
+    REFERENCES `movie_project`.`directors` (`id` )
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB
+AUTO_INCREMENT = 8
 DEFAULT CHARACTER SET = latin1;
 
-USE `movies` ;
+USE `movie_project` ;
 
 -- -----------------------------------------------------
--- procedure get_Directors
+-- procedure check_movie_exists
 -- -----------------------------------------------------
 
 DELIMITER $$
-USE `movies`$$
-CREATE DEFINER=`root`@`localhost` PROCEDURE `get_Directors`()
+USE `movie_project`$$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `check_movie_exists`(IN movie_name VARCHAR(50),  in director_id int )
+BEGIN
+
+	SELECT id FROM movies WHERE name = movie_name  AND director_id = director_id;
+    
+END$$
+
+DELIMITER ;
+
+-- -----------------------------------------------------
+-- procedure get_directors
+-- -----------------------------------------------------
+
+DELIMITER $$
+USE `movie_project`$$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `get_directors`()
 BEGIN
 
 	SELECT   id,
@@ -65,6 +69,49 @@ BEGIN
 END$$
 
 DELIMITER ;
+
+-- -----------------------------------------------------
+-- procedure get_movies
+-- -----------------------------------------------------
+
+DELIMITER $$
+USE `movie_project`$$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `get_movies`()
+BEGIN
+
+	SELECT   movies.id as movie_id,
+			 movies.name as movie_name,
+			 directors.id as director_id,
+             directors.name as director_name
+	FROM movies
+	inner join directors
+	on movies.d_id = directors.id
+    order by  director_name, movie_name;
+    
+END$$
+
+DELIMITER ;
+
+-- -----------------------------------------------------
+-- procedure insert_movie
+-- -----------------------------------------------------
+
+DELIMITER $$
+USE `movie_project`$$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `insert_movie`(IN movie_name VARCHAR(50), IN director_id Int )
+BEGIN
+
+    INSERT INTO `movie_project`.`movies`
+	(`name`,
+	 `d_id`)
+	VALUES
+	(movie_name,
+	 director_id);    
+    
+END$$
+
+DELIMITER ;
+
 
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;

@@ -1,43 +1,45 @@
 <?php 
 
     require_once '../models/movieModel.php';
-
+    require_once '../bl/movie-BLL.php';
+    
     class MovieController {
 
-        function create_update_Movie($param, &$errorInInput) {
+        function create_update_Movie($params, $method, &$errorInInput) {
             try {
-                    $Movie = new MovieModel($param, $errorInInput);
+                    $Movie = new MovieModel($params, $errorInInput);
                     if ($errorInInput != "") { //error found in data members of movie object
                         return;
                     }
-
                     $movie_bll = new movie_BLL();
-                    $returnMSG = $dir_bll->get_directors();
-
-                    // $Parms =  array();
-                    // array_push($Parms, new PDO_Parm("lead_name", $Lead -> getLeadName(), 'string')); 
-                    // array_push($Parms, new PDO_Parm("lead_phone", $Lead -> getLeadPhone(), 'string'));
-                    // array_push($Parms, new PDO_Parm("product_id", $Lead -> getProduct_ID(), 'integer'));
-                    // $lead = BusinessLogicLayer::get('crm', 'check_Lead_exists', $Parms);
-                    // if ($lead->rowCount() > 0) { // lead with same name, phone & product already exists
-                    // $errorInInput = "lead with same name, phone & product already exists";
-                    // return;
-                    // }
-                    // if ($action == "UpdateLead") {
-                    // array_unshift($Parms, new PDO_Parm("lead_id", $Lead -> getID(), 'integer'));
-                    // }
-                    // $spName = $action == "AddLead" ? 'insert_lead' : 'update_lead';
-                    // BusinessLogicLayer::update('crm', $spName, $Parms);
-
+                    $movie_bll->insert_update_movie($params, $method, $errorInInput);
             }
             catch (Exception $error) {
                 throw $error;
             }
-
         }
 
-        function getAllCustomers() {
-            
+        function getAll_Movies() {
+            try {
+                    $movie_bll = new movie_BLL();
+                    $resultSet = $movie_bll->get_movies();
+
+                    $allMovies = array();
+                    $errorInInput = ""; //use to check no problems in directors data retrieved from db -> if yes send error back to client
+
+                    while ($row = $resultSet->fetch())
+                    {                           
+                        array_push($allMovies, new MovieModel([ "movie_id" => $row['movie_id'], 
+                                                                "movie_name" => $row['movie_name'],
+                                                                "director_id" => $row['director_id'],
+                                                                "director_name" => $row['director_name']],
+                                                                $errorInInput));
+                    }
+                    return $allMovies;
+            }
+            catch (Exception $error) {
+                throw $error;
+            }
         }
 
         function getCustomerById($id) {
