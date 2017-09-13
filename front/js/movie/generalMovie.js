@@ -86,6 +86,14 @@ var generalMovie = (function() {
             //     break;
         }
     
+        // $.ajax({
+        //     url: '/echo/html/',
+        //     type: 'PUT',
+        //     data: "name=John&location=Boston",
+        //     success: function(data) {
+        //       alert('Load was performed.');
+        //     }
+        //   });
         // if (asp.action == "delete"){
         //     var ajaxData = asp;
         // }

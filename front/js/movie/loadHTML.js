@@ -56,6 +56,7 @@ function Update_Lead(){
         var mo = MovieObject();
         var movie = new mo.Movie(movieID, movieName, directorID, directorName)
 
+        $('#movieID').attr("value", movie.movie_id);
         $('#movieName').attr("value", movie.movie_name);
         $("#DirectorDDL").val(movie.director_id + "," + movie.director_name);
         $("#movieTitle").text("Movie# being updated: " + movie.movie_id).show();
