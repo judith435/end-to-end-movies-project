@@ -13,6 +13,14 @@
             Build_Params($params, 'director_id');
             Build_Params($params, 'director_name');
             
+            if (false)
+            {
+              $director = explode(",", $_POST["director"]);
+            }
+                                //   $product[0], 
+                                //   $product[1], 
+
+
             switch ($_REQUEST['ctrl']) {
                 case 'movie':
                     $mv_api = new MovieApi();

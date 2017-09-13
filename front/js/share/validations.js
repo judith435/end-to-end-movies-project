@@ -14,7 +14,7 @@ $(document).ready(function () {
         director_id: "No director selected"
       },
       submitHandler: function() {
-           generalMovie.ajaxSubmit("UpdateInsert");
+           generalMovie.ajaxSubmit();
         }
     });
   });
