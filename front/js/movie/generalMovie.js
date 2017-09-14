@@ -1,9 +1,13 @@
 'use strict'
 
 var generalMovie = (function() {
+
+    var movieName = '';
+    var directorID = '';
+    var directorName = '';
+
     var app = {
         debugMode: true,   
-        //movieApi: 'http://localhost:8080/joint/end-to-end-movies-project/back/api/api.php',
         movieApi: 'http://localhost/joint/end-to-end-movies-project/back/api/api.php',
         }
 
@@ -70,11 +74,38 @@ var generalMovie = (function() {
     //     this.id = id;
     // }
 
+    function update_delete_Movies(row)
+    {
+        var movieID = row.find('td:first').text();
+        movieName = row.find('td:nth-child(2)').text();
+        directorID = row.find('td:nth-child(3)').text();
+        directorName = row.find('td:nth-child(4)').text();
+        var mo = MovieObject();
+        var movie = new mo.Movie(movieID, movieName, directorID, directorName)
+
+        $('#movieID').val(movie.movie_id);
+        $('#movieName').val(movie.movie_name);
+        $("#DirectorDDL").val(movie.director_id + "," + movie.director_name);
+        $("#movieTitle").text("Movie# being updated: " + movie.movie_id).show();
+        $("#CreateUpdateDivFields").show();
+        $("#btnAction").html('Update Movie');
+
+    }
     //function ajaxSubmit(asp){
     function ajaxSubmit(){
-            
-        var verb;
-        switch ($('title').text()) {
+
+        var htmlTitle = $('title').text();    
+        var verb = "";
+
+        //update movie - check existing values changed by user
+        if (htmlTitle == "Update Movie"){
+            if(!InputChanged()){
+                alert("no change in data - no update");
+                return;
+            }
+        }
+
+        switch (htmlTitle) {
             case "Create Movie":
                 verb = "POST";
                 break;
@@ -112,7 +143,7 @@ var generalMovie = (function() {
                 }
                 data = JSON.parse(data);
                 // data.message conatains CUD confirmation if successful or application errors => e.g. missing product if not
-                alert(data.status + " " + data.action + " " + data.message); 
+                //alert(data.status + " " + data.action + " " + data.message); 
                 // if(data.status == 'error') { return; }
                 // if(data.action == "delete" || data.action == "UpdateLead" ){ //if action was delete update show new entitiy table
                 //     Show_Leads();
@@ -135,11 +166,15 @@ var generalMovie = (function() {
 
     }
 
+    function InputChanged() {
+        return $('#movieName').val().trim() != movieName || $('#DirectorDDL').val().trim() !=  directorID  + "," + directorName;
+    }
+  
     //ajaxSubmit is called from submitHandler:  in validator = $("#frmCU").validate({ from validations.js file
     return {
         ajaxSubmit: ajaxSubmit, 
-        showMovies: showMovies
-        
+        showMovies: showMovies,
+        update_delete_Movies: update_delete_Movies
     }
 })();
 

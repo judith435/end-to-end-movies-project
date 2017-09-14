@@ -14,7 +14,7 @@ jQuery(document).ready(function() {
         case "Update Movie":
             generalMovie.showMovies();
             LoadDirectors();
-            Update_Lead();
+            Update_Movie();
             break;
         // case "Delete Lead":
         //     Delete_Lead();
@@ -25,9 +25,11 @@ jQuery(document).ready(function() {
 
 function LoadDirectors()
 {
-    var director_share = generalDirector();  
-    director_share.Get_Directors(callback_BuildDDL);
-    
+    // var director_share = generalDirector();  
+    // director_share.Get_Directors(callback_BuildDDL);
+
+    generalDirector.Get_Directors(callback_BuildDDL);
+
     $.ajax('../../templates/create-movie-template.html').done(function(data) {
         $('#CreateUpdateDivFields').prepend(data);
     });
@@ -45,23 +47,12 @@ var callback_BuildDDL = function(directors)
 }
 
 
-function Update_Lead(){
+function Update_Movie(){
+
     $("#movieTitle, #CreateUpdateDivFields").hide();
     
     $(document).on('click','#MoviesTable tr',function(e){
-        var movieID = $(this).find('td:first').text();
-        var movieName = $(this).find('td:nth-child(2)').text();
-        var directorID = $(this).find('td:nth-child(3)').text();
-        var directorName = $(this).find('td:nth-child(4)').text();
-        var mo = MovieObject();
-        var movie = new mo.Movie(movieID, movieName, directorID, directorName)
-
-        $('#movieID').attr("value", movie.movie_id);
-        $('#movieName').attr("value", movie.movie_name);
-        $("#DirectorDDL").val(movie.director_id + "," + movie.director_name);
-        $("#movieTitle").text("Movie# being updated: " + movie.movie_id).show();
-        $("#CreateUpdateDivFields").show();
-        $("#btnAction").html('Update Movie');
+        generalMovie.update_delete_Movies($(this));
     })
 }
 
