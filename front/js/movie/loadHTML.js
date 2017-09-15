@@ -16,18 +16,16 @@ jQuery(document).ready(function() {
             LoadDirectors();
             Update_Movie();
             break;
-        // case "Delete Lead":
-        //     Delete_Lead();
-        //     break;
+        case "Delete Movie":
+            generalMovie.showMovies();
+            Delete_Movie();
+            break;
     }
 
 });
 
 function LoadDirectors()
 {
-    // var director_share = generalDirector();  
-    // director_share.Get_Directors(callback_BuildDDL);
-
     generalDirector.Get_Directors(callback_BuildDDL);
 
     $.ajax('../../templates/create-movie-template.html').done(function(data) {
@@ -46,14 +44,19 @@ var callback_BuildDDL = function(directors)
     }
 }
 
-
 function Update_Movie(){
 
     $("#movieTitle, #CreateUpdateDivFields").hide();
     
     $(document).on('click','#MoviesTable tr',function(e){
-        generalMovie.update_delete_Movies($(this));
+        generalMovie.update_Movie($(this));
     })
 }
 
+function Delete_Movie(){
 
+        $(document).on('click','#MoviesTable tr',function(e){
+            generalMovie.delete_Movie($(this));
+        })
+    }
+    

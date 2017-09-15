@@ -9,6 +9,16 @@
             parent::__construct('movie_project');
         }
 
+        public function get_movies() {
+            try {
+                    $emptyParms = []; 
+                    return parent::get($this->get_dbName(), 'get_movies', $emptyParms);
+                }
+            catch (Exception $error) {
+                throw $error;
+            }
+        }
+
         public function insert_update_movie($params, $method,  &$errorInInput) {
             try {
                     $spParms =  array();
@@ -23,23 +33,23 @@
                          array_unshift($spParms, new PDO_Parm("movie_id", $params["movie_id"], 'integer'));
                     }
                     $spName = $method == "Create" ? 'insert_movie' : 'update_movie';
-                    $movie = parent::get($this->get_dbName(), $spName, $spParms);
+                    parent::update($this->get_dbName(), $spName, $spParms);
             }
             catch (Exception $error) {
                 throw $error;
             }
         }
 
-        public function get_movies() {
+        public function delete_movie($params) {
             try {
-                    $emptyParms = []; 
-                    return parent::get($this->get_dbName(), 'get_movies', $emptyParms);
+                    $spParms =  array();
+                    array_push($spParms, new PDO_Parm("movie_id", $params["movie_id"], 'integer'));
+                    return parent::get($this->get_dbName(), 'delete_movie', $spParms);
                 }
             catch (Exception $error) {
                 throw $error;
             }
         }
-
     }
     
 ?>

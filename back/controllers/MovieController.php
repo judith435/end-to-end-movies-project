@@ -5,19 +5,6 @@
     
     class MovieController {
 
-        function create_update_Movie($params, $method, &$errorInInput) {
-            try {
-                    $Movie = new MovieModel($params, $errorInInput);
-                    if ($errorInInput != "") { //error found in data members of movie object
-                        return;
-                    }
-                    $movie_bll = new movie_BLL();
-                    $movie_bll->insert_update_movie($params, $method, $errorInInput);
-            }
-            catch (Exception $error) {
-                throw $error;
-            }
-        }
 
         function getAll_Movies() {
             try {
@@ -42,15 +29,38 @@
             }
         }
 
-        function getCustomerById($id) {
-            $array = [
-                "id" => $id,
-                "name" => MD5($id)
-            ];
-           
-            $c = new CustomerModel($array);
-            return $c->jsonSerialize();
+        function create_update_Movie($params, $method, &$errorInInput) {
+            try {
+                    $Movie = new MovieModel($params, $errorInInput);
+                    if ($errorInInput != "") { //error found in data members of movie object
+                        return;
+                    }
+                    $movie_bll = new movie_BLL();
+                    $movie_bll->insert_update_movie($params, $method, $errorInInput);
+            }
+            catch (Exception $error) {
+                throw $error;
+            }
         }
+
+        function delete_Movie($params) {
+            try {
+                    $movie_bll = new movie_BLL();
+                    $movie_bll->delete_movie($params);
+            }
+            catch (Exception $error) {
+                throw $error;
+            }
+        }
+        // function getCustomerById($id) {
+        //     $array = [
+        //         "id" => $id,
+        //         "name" => MD5($id)
+        //     ];
+           
+        //     $c = new CustomerModel($array);
+        //     return $c->jsonSerialize();
+        // }
     }
 
 ?>

@@ -11,7 +11,8 @@
 
             switch ($method) {
                 case 'PUT':
-                    parse_str(file_get_contents("php://input"),$clientVars);    
+                case 'DELETE':
+                    parse_str(file_get_contents("php://input"), $clientVars);    
                     break;
                 case 'GET':
                 case 'POST':

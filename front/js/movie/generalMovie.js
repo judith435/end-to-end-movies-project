@@ -74,7 +74,7 @@ var generalMovie = (function() {
     //     this.id = id;
     // }
 
-    function update_delete_Movies(row)
+    function update_Movie(row)
     {
         var movieID = row.find('td:first').text();
         movieName = row.find('td:nth-child(2)').text();
@@ -91,7 +91,17 @@ var generalMovie = (function() {
         $("#btnAction").html('Update Movie');
 
     }
-    //function ajaxSubmit(asp){
+
+    function delete_Movie(row)
+    {
+        var movieID = row.find('td:first').text();
+        var confirmation = confirm('Are you sure you want to delete movie number ' + movieID + "?");
+        if (confirmation == true) {
+            $('#movieID').val(movieID);
+            ajaxSubmit();
+        } 
+    }
+
     function ajaxSubmit(){
 
         var htmlTitle = $('title').text();    
@@ -111,27 +121,14 @@ var generalMovie = (function() {
                 break;
             case "Update Movie":
                 verb = "PUT";
-            break;
-            // case "Delete Lead":
-            //     Delete_Lead();
-            //     break;
+                break;
+            case "Delete Movie":
+                verb = "DELETE";
+                break;
         }
     
-        // $.ajax({
-        //     url: '/echo/html/',
-        //     type: 'PUT',
-        //     data: "name=John&location=Boston",
-        //     success: function(data) {
-        //       alert('Load was performed.');
-        //     }
-        //   });
-        // if (asp.action == "delete"){
-        //     var ajaxData = asp;
-        // }
-        // else {
-            var ajaxData = $('form').serialize();
-            var toto = ajaxData;
-        // }
+        var ajaxData = $('form').serialize();
+        console.log(ajaxData);
         $.ajax({
             type: verb,
             url:  app.movieApi,
@@ -143,20 +140,14 @@ var generalMovie = (function() {
                 }
                 data = JSON.parse(data);
                 // data.message conatains CUD confirmation if successful or application errors => e.g. missing product if not
-                //alert(data.status + " " + data.action + " " + data.message); 
-                // if(data.status == 'error') { return; }
-                // if(data.action == "delete" || data.action == "UpdateLead" ){ //if action was delete update show new entitiy table
-                //     Show_Leads();
-                //     // switch (asp.entity) { => for future use
-                //     //     case "lead":
-                //     //         Show_Leads();
-                //     //         break;
-                //     // }
-                // }
-                // if(data.action == "UpdateLead") {
-                //     $("#CreateUpdateDivFields").html("");  
-                //     $("#btnUpdateLead , #leadTitle").hide();
-                // }
+                alert(data.message); 
+                if (data.status == 'error') { return;}
+                if (data.action == "Update movie" || data.action == "Delete movie" ){ //if action was delete update show updated movies table
+                    showMovies()
+                }
+                if (data.action == "Update movie") {
+                    $("#movieTitle, #CreateUpdateDivFields").hide();
+                }
             },
             // systen errors caused by a bad connection, timeout, invalid url  
             error:function(data){
@@ -174,7 +165,8 @@ var generalMovie = (function() {
     return {
         ajaxSubmit: ajaxSubmit, 
         showMovies: showMovies,
-        update_delete_Movies: update_delete_Movies
+        update_Movie: update_Movie,
+        delete_Movie: delete_Movie
     }
 })();
 
