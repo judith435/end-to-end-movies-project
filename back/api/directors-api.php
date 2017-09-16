@@ -5,8 +5,6 @@
     class DirectorApi extends Api{
 
         function Create($params) {
-            // $c = new DirectorController;
-            // $c->CreateCustomer($param);
         }
 
         function Read($params) {
@@ -22,10 +20,8 @@
             }
         }
          function Update($params) {
-             // TODO
          }
          function Delete($params) {
-            // TODO
          }
     }
 ?>

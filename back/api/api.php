@@ -6,7 +6,7 @@
     
     try { 
             $method = $_SERVER['REQUEST_METHOD']; // verb
-            $request = isset($_REQUEST['ctrl']) ?  $_REQUEST['ctrl'] : '';
+            $request = isset($_REQUEST['ctrl']) ?  $_REQUEST['ctrl'] : '';//ctrl => movie or director
             $clientVars = [];
 
             switch ($method) {
@@ -51,9 +51,7 @@
 
     function Build_Params(&$params, $clientVars, $requestData) {
         $params[$requestData] = 
-                        //  isset($_REQUEST[$requestData]) ? trim($_REQUEST[$requestData]) : null; 
             isset($clientVars[$requestData]) ? trim($clientVars[$requestData]) : null; 
-            
     }
 
 
