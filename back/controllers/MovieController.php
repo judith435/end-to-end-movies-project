@@ -7,7 +7,7 @@
 
 
         function getAll_Movies() {
-            try {
+            // try {
                     $movie_bll = new movie_BLL();
                     $resultSet = $movie_bll->get_movies();
 
@@ -23,10 +23,10 @@
                                                                 $errorInInput));
                     }
                     return $allMovies;
-            }
-            catch (Exception $error) {
-                throw $error;
-            }
+            // }
+            // catch (Exception $error) {
+            //     throw $error;
+            // }
         }
 
         function create_update_Movie($params, $method, &$errorInInput) {

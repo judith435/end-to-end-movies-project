@@ -1,10 +1,16 @@
 <?php
-
     require_once 'movies-api.php';
     require_once 'directors-api.php';
     require_once '../share/ErrorHandling.php';
     
-    try { 
+    //define error handling for site
+    set_exception_handler('exception_handler');
+    function exception_handler($exception) {
+        ErrorHandling::HandleError($exception); 
+    }
+      
+    // try { 
+
             $method = $_SERVER['REQUEST_METHOD']; // verb
             $request = isset($_REQUEST['ctrl']) ?  $_REQUEST['ctrl'] : '';//ctrl => movie or director
             $clientVars = [];
@@ -44,10 +50,10 @@
                     echo json_encode($response);
                     break;
             }
-    }
-    catch (Exception $error) {
-        ErrorHandling::HandleError($error); 
-    }
+    // }
+    // catch (Exception $error) {
+    //     ErrorHandling::HandleError($error); 
+    // }
 
     function Build_Params(&$params, $clientVars, $requestData) {
         $params[$requestData] = 

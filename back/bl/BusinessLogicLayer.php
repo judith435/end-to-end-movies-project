@@ -31,13 +31,13 @@
         }
 
         public function get($db, $spName, $SP_parms) {
-            try {
+            // try {
                     $con = new Connection($db);  
                     return $con->executeSP($spName, $SP_parms);
-            }
-            catch (Exception $error) {
-                throw $error;
-            }
+            // }
+            // catch (Exception $error) {
+            //     throw $error;
+            // }
         }
     }
     

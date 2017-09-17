@@ -5,12 +5,12 @@
     class MovieApi extends Api{
 
         function Create($params) {
-            try {
+            // try {
                 return $this->create_update($params, "Create");  
-            } 
-            catch (Exception $error) {
-                throw $error;
-            }
+            // } 
+            // catch (Exception $error) {
+            //     throw $error;
+            // }
         }
 
         function Read($params) {

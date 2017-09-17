@@ -45,7 +45,7 @@
         }
 
         public function executeSP($sp, $parms) {   
-             try {
+            //  try {
                 $pdo = new PDO($this->dsn, $this->user, $this->pass, $this->opt);
                 $parmList = '(';
                 foreach ($parms as  $parm) {  
@@ -61,10 +61,10 @@
 
                 $stmt->execute();
                 return $stmt;
-            }
-            catch (Exception $error) {
-                throw $error;
-            }
+            // }
+            // catch (Exception $error) {
+            //     throw $error;
+            // }
          }
 
     } 

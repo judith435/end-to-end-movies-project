@@ -61,18 +61,6 @@ var generalMovie = (function() {
                 }
         });
     }
-        
-    //write same generic add function for  movie & director objects for create and update operations
-    // $('#frmCU').on("submit", function (e) {   
-    //     e.preventDefault();
-    //     return false;
-    // });
-
-    // function AjaxSubmitParms(action, entity, id) {
-    //     this.action = action;
-    //     this.entity = entity;
-    //     this.id = id;
-    // }
 
     function update_Movie(row)
     {

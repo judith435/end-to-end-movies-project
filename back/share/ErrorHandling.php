@@ -19,9 +19,20 @@
             $txt = "Trace:" .PHP_EOL;;
             fwrite($ErrorFile, $txt);
             foreach ($trace as $item) {
-                fwrite($ErrorFile,  "file: " . $item["file"] . " => line: " . $item["line"] . " => function: " . $item["function"] . 
-                                    " => class: " . $item["class"] . " => type: " . $item["type"] .PHP_EOL);
+                fwrite($ErrorFile,  "file: " . $item["file"] . 
+                                    " => line: " . $item["line"] . 
+                                    " => function: " . $item["function"] . 
+                                    " => class: " . $item["class"] . 
+                                    " => type: " . $item["type"] .PHP_EOL);
             }
+            //certain errors do not generate trace => handle them here
+            $toto =  $Error->getFile();
+            if(empty($trace)){
+                fwrite($ErrorFile,  "file: " . $Error->getFile() . 
+                                    " => line: " . $Error->getLine() . 
+                                    " => TraceAsString: " . $Error->getTraceAsString() .PHP_EOL);
+            }
+
             $txt = "Message: " . $Error->getMessage() .PHP_EOL;
             fwrite($ErrorFile, $txt);
             $txt = "Code: " . $Error->getCode() .PHP_EOL;
