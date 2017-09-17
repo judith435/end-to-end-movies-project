@@ -10,13 +10,8 @@
         }
     
         public function get_directors() {
-            try {
-                    $emptyParms = []; 
-                    return parent::get($this->get_dbName(), 'get_directors', $emptyParms);
-                }
-            catch (Exception $error) {
-                throw $error;
-            }
+            $emptyParms = []; 
+            return parent::get($this->get_dbName(), 'get_directors', $emptyParms);
         }
     }
     

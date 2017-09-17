@@ -56,18 +56,13 @@
         }
 
         public function jsonSerialize() {
-            try {
-                    return  [
-                                'id' => $this->getID(),
-                                'name' => $this->getName(),
-                                'director_id' => $this->getDirector_ID(),
-                                'director_name' => $this->getDirector_Name()
-                            ];
-                }
-            catch (Exception $error) {
-                throw $error;
-            }
-    }
+            return  [
+                        'id' => $this->getID(),
+                        'name' => $this->getName(),
+                        'director_id' => $this->getDirector_ID(),
+                        'director_name' => $this->getDirector_Name()
+                    ];
+        }
     }
 
 ?>

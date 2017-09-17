@@ -21,23 +21,13 @@
         }
         
         public function update($db, $spName, $SP_parms) {
-            try {
-                    $con = new Connection($db);  
-                    $con->executeSP($spName, $SP_parms);
-            }
-            catch (Exception $error) {
-                throw $error;
-            }
+            $con = new Connection($db);  
+            $con->executeSP($spName, $SP_parms);
         }
 
         public function get($db, $spName, $SP_parms) {
-            // try {
-                    $con = new Connection($db);  
-                    return $con->executeSP($spName, $SP_parms);
-            // }
-            // catch (Exception $error) {
-            //     throw $error;
-            // }
+            $con = new Connection($db);  
+            return $con->executeSP($spName, $SP_parms);
         }
     }
     

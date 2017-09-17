@@ -4,31 +4,24 @@
 
     class MovieApi extends Api{
 
-        function Create($params) {
-            // try {
-                return $this->create_update($params, "Create");  
-            // } 
-            // catch (Exception $error) {
-            //     throw $error;
-            // }
-        }
-
         function Read($params) {
-
+            $applicationError = ""; //use to check no problems in movies data retrieved from db -> if yes send error back to client
             $mc = new MovieController;
 
-            //if (array_key_exists("id", $params)) {
-            if (false) {
-                $customer = $c->getCustomerById($params["id"]);
-                return json_encode($customer, JSON_PRETTY_PRINT);
+            if (array_key_exists("id", $params)) {
+                // $customer = $c->getCustomerById($params["id"]);
+                // return json_encode($customer, JSON_PRETTY_PRINT);
             }
             else {
-                return $mc->getAll_Movies();
+                return $mc->getAll_Movies($applicationError);
             }
+        }
+
+        function Create($params) {
+            return $this->create_update($params, "Create");  
         }
 
         function Update($params) {
-
             return $this->create_update($params, "Update");  
         }
 
@@ -40,19 +33,19 @@
             $response_array['action'] = 'Delete movie';
             $response_array['message'] = 'movie deleted successfully'; 
             return $response_array;
-
         }
 
         function create_update($params, $function) {
 
-            $errorInInput = "";
+            //used to return the following kind of errors to client: errors in input data, creating movie that talralready exists etc. 
+            $applicationError = ""; 
             $mc = new MovieController;
-            $mc->create_update_Movie($params, $function, $errorInInput);
+            $mc->create_update_Movie($params, $function, $applicationError);
 
-            if ($errorInInput != "") {
+            if ($applicationError != "") {
                 $response_array['status'] = 'error';  
                 $response_array['action'] = $function . ' movie';
-                $response_array['message'] = 'Error from Server: ' . $errorInInput; 
+                $response_array['message'] =  $applicationError; 
             }
             else {
                 $response_array['status'] = 'ok'; 

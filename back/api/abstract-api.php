@@ -1,11 +1,11 @@
 <?php
     abstract class Api {
+
         abstract function Create($params);
         abstract function Read($params);
         abstract function Update($params);
         abstract function Delete($params);
 
-        
         public function gateway($method, $params) {
             switch ($method) {
                 case "POST":

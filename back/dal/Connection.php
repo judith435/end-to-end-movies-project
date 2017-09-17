@@ -33,38 +33,28 @@
         }
 
         public function executeStatement($query, $parms) {
-            try {
-                $pdo = new PDO($this->dsn, $this->user, $this->pass, $this->opt);
-                $stmt = $pdo->prepare($query);
-                $stmt->execute($parms);
-                return $stmt;
-            }
-            catch (Exception $error) {
-                throw $error;
-            }
+            $pdo = new PDO($this->dsn, $this->user, $this->pass, $this->opt);
+            $stmt = $pdo->prepare($query);
+            $stmt->execute($parms);
+            return $stmt;
         }
 
         public function executeSP($sp, $parms) {   
-            //  try {
-                $pdo = new PDO($this->dsn, $this->user, $this->pass, $this->opt);
-                $parmList = '(';
-                foreach ($parms as  $parm) {  
-                    $parmList .= ':' . $parm->getID() . ',';
-                }
-                $parmList = rtrim($parmList, ',');
-                $parmList .= ')';
-                $sql = 'CALL ' . $sp . $parmList;
-                $stmt = $pdo->prepare($sql);
-                foreach ($parms as  $parm) { 
-                    $stmt->bindValue(':' . $parm->getID() , $parm->getValue(), $parm->getType());
-                }
+            $pdo = new PDO($this->dsn, $this->user, $this->pass, $this->opt);
+            $parmList = '(';
+            foreach ($parms as  $parm) {  
+                $parmList .= ':' . $parm->getID() . ',';
+            }
+            $parmList = rtrim($parmList, ',');
+            $parmList .= ')';
+            $sql = 'CALL ' . $sp . $parmList;
+            $stmt = $pdo->prepare($sql);
+            foreach ($parms as  $parm) { 
+                $stmt->bindValue(':' . $parm->getID() , $parm->getValue(), $parm->getType());
+            }
 
-                $stmt->execute();
-                return $stmt;
-            // }
-            // catch (Exception $error) {
-            //     throw $error;
-            // }
+            $stmt->execute();
+            return $stmt;
          }
 
     } 

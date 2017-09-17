@@ -33,15 +33,10 @@
         }
 
         public function jsonSerialize() {
-            try {
-                    return  [
-                                'id' => $this->getID(),
-                                'name' => $this->getName()
-                            ];
-                }
-            catch (Exception $error) {
-                throw $error;
-            }
+            return  [
+                        'id' => $this->getID(),
+                        'name' => $this->getName()
+                    ];
         }
     }
 

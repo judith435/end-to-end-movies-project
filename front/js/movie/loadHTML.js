@@ -11,15 +11,16 @@ jQuery(document).ready(function() {
           //  $("#btnAction").html('Create Movie');
             LoadDirectors()
             break;
-        case "Update Movie":
-            generalMovie.showMovies();
-            LoadDirectors();
-            Update_Movie();
-            break;
-        case "Delete Movie":
-            generalMovie.showMovies();
-            Delete_Movie();
-            break;
+        // case "Update Movie":
+        //     generalMovie.showMovies();
+        //     LoadDirectors();
+        //     Update_Movie();
+        //     $('#MoviesTable').height('250px');
+        //     break;
+        // case "Delete Movie":
+        //     generalMovie.showMovies();
+        //     Delete_Movie();
+        //     break;
     }
 
 });
@@ -44,19 +45,18 @@ var callback_BuildDDL = function(directors)
     }
 }
 
-function Update_Movie(){
-
-    $("#movieTitle, #CreateUpdateDivFields").hide();
+// function Update_Movie(){
+//     $("#movieTitle, #CreateUpdateDivFields").hide();
     
-    $(document).on('click','#MoviesTable tr',function(e){
-        generalMovie.update_Movie($(this));
-    })
-}
+//     $(document).on('click','#MoviesTable tr',function(e){
+//         generalMovie.update_Movie($(this));
+//     })
+// }
 
-function Delete_Movie(){
+// function Delete_Movie(){
 
-        $(document).on('click','#MoviesTable tr',function(e){
-            generalMovie.delete_Movie($(this));
-        })
-    }
+//         $(document).on('click','#MoviesTable tr',function(e){
+//             generalMovie.delete_Movie($(this));
+//         })
+//     }
     

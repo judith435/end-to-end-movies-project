@@ -12,23 +12,18 @@
         // }
 
         function getAll_Directors() {
-            try {
                     
-                    $dir_bll = new director_BLL();
-                    $resultSet = $dir_bll->get_directors();
+            $dir_bll = new director_BLL();
+            $resultSet = $dir_bll->get_directors();
 
-                    $allDirectors = array();
-                    $errorInInput = ""; //use to check no problems in directors data retrieved from db -> if yes send error back to client
+            $allDirectors = array();
+            $errorInInput = ""; //use to check no problems in directors data retrieved from db -> if yes send error back to client
 
-                    while ($row = $resultSet->fetch())
-                    {                           
-                         array_push($allDirectors, new DirectorModel(["id" => $row['id'], "name" => $row['name']], $errorInInput));
-                    }
-                    return $allDirectors;
+            while ($row = $resultSet->fetch())
+            {                           
+                array_push($allDirectors, new DirectorModel(["id" => $row['id'], "name" => $row['name']], $errorInInput));
             }
-            catch (Exception $error) {
-                throw $error;
-            }
+            return $allDirectors;
         }
 
         // function getDirectorById($id) {

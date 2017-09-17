@@ -11,6 +11,27 @@ var generalMovie = (function() {
         movieApi: 'http://localhost/joint/end-to-end-movies-project/back/api/api.php',
         }
 
+
+    function LoadDirectors()
+    {
+        generalDirector.Get_Directors(callback_BuildDDL);
+    
+        $.ajax('../../templates/create-movie-template.html').done(function(data) {
+            $('#CreateUpdateDivFields').prepend(data);
+        });
+    
+    }
+    
+    var callback_BuildDDL = function(directors)
+    {
+            if ($('title').text() == "Create Movie"){
+                $("#DirectorDDL").append("<option value=''>Please Select Director</option>");
+            }
+            for(let i=0; i < directors.length; i++) {
+            $("#DirectorDDL").append(new Option(directors[i].name, directors[i].id + ',' + directors[i].name));
+        }
+    }
+            
     function showMovies(){
         $("#MoviesTable").load("../../templates/movies-table-template.html");
 
@@ -62,33 +83,33 @@ var generalMovie = (function() {
         });
     }
 
-    function update_Movie(row)
-    {
-        var movieID = row.find('td:first').text();
-        movieName = row.find('td:nth-child(2)').text();
-        directorID = row.find('td:nth-child(3)').text();
-        directorName = row.find('td:nth-child(4)').text();
-        var mo = MovieObject();
-        var movie = new mo.Movie(movieID, movieName, directorID, directorName)
+    // function update_Movie(row)
+    // {
+    //     var movieID = row.find('td:first').text();
+    //     movieName = row.find('td:nth-child(2)').text();
+    //     directorID = row.find('td:nth-child(3)').text();
+    //     directorName = row.find('td:nth-child(4)').text();
+    //     var mo = MovieObject();
+    //     var movie = new mo.Movie(movieID, movieName, directorID, directorName)
 
-        $('#movieID').val(movie.movie_id);
-        $('#movieName').val(movie.movie_name);
-        $("#DirectorDDL").val(movie.director_id + "," + movie.director_name);
-        $("#movieTitle").text("Movie# being updated: " + movie.movie_id).show();
-        $("#CreateUpdateDivFields").show();
-        $("#btnAction").html('Update Movie');
+    //     $('#movieID').val(movie.movie_id);
+    //     $('#movieName').val(movie.movie_name);
+    //     $("#DirectorDDL").val(movie.director_id + "," + movie.director_name);
+    //     $("#movieTitle").text("Movie# being updated: " + movie.movie_id).show();
+    //     $("#CreateUpdateDivFields").show();
+    //     $("#btnAction").html('Update Movie');
 
-    }
+    // }
 
-    function delete_Movie(row)
-    {
-        var movieID = row.find('td:first').text();
-        var confirmation = confirm('Are you sure you want to delete movie number ' + movieID + "?");
-        if (confirmation == true) {
-            $('#movieID').val(movieID);
-            ajaxSubmit();
-        } 
-    }
+    // function delete_Movie(row)
+    // {
+    //     var movieID = row.find('td:first').text();
+    //     var confirmation = confirm('Are you sure you want to delete movie number ' + movieID + "?");
+    //     if (confirmation == true) {
+    //         $('#movieID').val(movieID);
+    //         ajaxSubmit();
+    //     } 
+    // }
 
     function ajaxSubmit(){
 
@@ -153,8 +174,9 @@ var generalMovie = (function() {
     return {
         ajaxSubmit: ajaxSubmit, 
         showMovies: showMovies,
-        update_Movie: update_Movie,
-        delete_Movie: delete_Movie
+        // update_Movie: update_Movie,
+        // delete_Movie: delete_Movie,
+        LoadDirectors : LoadDirectors
     }
 })();
 
