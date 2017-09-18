@@ -10,38 +10,17 @@
     }
       
     $method = $_SERVER['REQUEST_METHOD']; // verb
-    $clientVars = [];
+    $params = []; //contains data sent to server from client in REST protocol
 
-    switch ($method) {
-        case 'PUT':
-        case 'DELETE':
-            parse_str(file_get_contents("php://input"), $clientVars);    
-            break;
-        case 'GET':
-        case 'POST':
-            $clientVars = $_REQUEST;
-            break;
+    if ($method == 'GET' || $method == 'POST') {
+        $params = $_REQUEST;
+    }
+    else
+    {
+        parse_str(file_get_contents("php://input"), $params);    
     }
 
-    $params = array();
-    Build_Params($params, $clientVars, 'movie_id');
-    Build_Params($params, $clientVars, 'movie_name');
-
-    if($method == "PUT" || $method == "POST") {
-        $director = explode(",", $clientVars["director"]);
-        $clientVars["director_id"] = $director[0];
-        $clientVars["director_name"] = $director[1];
-        Build_Params($params, $clientVars, "director_id"); 
-        Build_Params($params, $clientVars, "director_name");
-    }
-
-    function Build_Params(&$params, $clientVars, $requestData) {
-        if (isset($clientVars[$requestData])) {
-            $params[$requestData] =  trim($clientVars[$requestData]);
-        }
-    }
-
-    switch ($clientVars['ctrl']) {
+    switch ($params['ctrl']) {
         case 'movie':
             $mv_api = new MovieApi();
             $response = $mv_api->gateway($method, $params);

@@ -11,11 +11,13 @@
         private $director_name;
 
         function __construct($params, &$errorInInput) {
-            $this->setID($params["movie_id"]);
+            $this->setID
+                (array_key_exists("movie_id", $params) ? $params["movie_id"] : 0); 
             $this->setName($params["movie_name"], $errorInInput);
             $this->setDirector_ID($params["director_id"], $errorInInput); 
-            $this->setDirector_Name($params["director_name"]); 
-        }
+            $this->setDirector_Name
+                (array_key_exists("director_name", $params) ? $params["director_name"] : ""); 
+        }  
 
         public function setID($mv_id){
             $this->id = $mv_id;

@@ -2,24 +2,31 @@
 
 var generalMovie = (function() {
 
-    var movieName = '';
-    var directorID = '';
-    var directorName = '';
+    // var movieName = '';
+    // var directorID = '';
+    // var directorName = '';
 
     var app = {
         debugMode: true,   
         movieApi: 'http://localhost/joint/end-to-end-movies-project/back/api/api.php',
         }
 
-
+    function LoadCU_Template()
+    {
+        $.ajax('../../templates/create-movie-template.html').done(function(data) {
+            $('#CreateUpdateDivFields').prepend(data);
+            if ($('title').text() == "Create Movie") {
+                $("#btnAction").html('Create Movie');
+            }
+            else {
+                $("#btnAction").html('Update Movie');
+            }
+        });
+    }
+    
     function LoadDirectors()
     {
         generalDirector.Get_Directors(callback_BuildDDL);
-    
-        $.ajax('../../templates/create-movie-template.html').done(function(data) {
-            $('#CreateUpdateDivFields').prepend(data);
-        });
-    
     }
     
     var callback_BuildDDL = function(directors)
@@ -28,61 +35,12 @@ var generalMovie = (function() {
                 $("#DirectorDDL").append("<option value=''>Please Select Director</option>");
             }
             for(let i=0; i < directors.length; i++) {
-            $("#DirectorDDL").append(new Option(directors[i].name, directors[i].id + ',' + directors[i].name));
+                // $("#DirectorDDL").append(new Option(directors[i].name, directors[i].id + ',' + directors[i].name));
+                 $("#DirectorDDL").append(new Option(directors[i].name, directors[i].id));
+                 
         }
     }
-            
-    function showMovies(){
-        $("#MoviesTable").load("../../templates/movies-table-template.html");
-
-        var ajaxData = {
-            ctrl: 'movie'//,
-            //action: 'getDirectors'
-        };
-
-        $.ajax({    
-            type: 'GET',
-            url: app.movieApi,
-            data: ajaxData,
-            success: function(response) {
-                var data = JSON.parse(response);
-                if (data.status == "error"){ 
-                    alert(data.message);
-                    return;
-                }
-
-                var moviesArray = [];
-                var mo = MovieObject();
-                for (let i = 0; i < data.length; i++) {
-                    moviesArray.push(new mo.Movie(data[i].id, 
-                                                  data[i].name,
-                                                  data[i].director_id,
-                                                  data[i].director_name,
-                                            ));
-                }      
-                $.ajax('../../templates/movie-template.html').done(function(data) {
-                    $("#movies").html("");
-                    for(let i=0; i < moviesArray.length; i++) {
-                        let template = data;
-                        template = template.replace("{{movie_id}}", moviesArray[i].movie_id);
-                        template = template.replace("{{movie_name}}", moviesArray[i].movie_name);
-                        template = template.replace("{{director_id}}", moviesArray[i].director_id);
-                        template = template.replace("{{director_name}}", moviesArray[i].director_name);
-                        $('#movies').append(template);
-                    }
-                });
-        },
-            // systen errors caused by a bad connection, timeout, invalid url  
-            error: function(error_response){
-                    if(app.debugMode){
-                        console.log("movieApi error response");
-                        console.log(error_response);
-                    }
-                    alert("error: " + error_response); //===Show Error Message====
-                }
-        });
-    }
-
+         
     // function update_Movie(row)
     // {
     //     var movieID = row.find('td:first').text();
@@ -152,7 +110,7 @@ var generalMovie = (function() {
                 alert(data.message); 
                 if (data.status == 'error') { return;}
                 if (data.action == "Update movie" || data.action == "Delete movie" ){ //if action was delete update show updated movies table
-                    showMovies()
+                    showMovies.showMovies()
                 }
                 if (data.action == "Update movie") {
                     $("#movieTitle, #CreateUpdateDivFields").hide();
@@ -167,15 +125,14 @@ var generalMovie = (function() {
     }
 
     function InputChanged() {
-        return $('#movieName').val().trim() != movieName || $('#DirectorDDL').val().trim() !=  directorID  + "," + directorName;
+        return  $('#movieName').val().trim() != updateMovie.movieName || 
+                $('#DirectorDDL').val().trim() !=  updateMovie.directorID;
     }
   
     //ajaxSubmit is called from submitHandler:  in validator = $("#frmCU").validate({ from validations.js file
     return {
         ajaxSubmit: ajaxSubmit, 
-        showMovies: showMovies,
-        // update_Movie: update_Movie,
-        // delete_Movie: delete_Movie,
+        LoadCU_Template: LoadCU_Template,
         LoadDirectors : LoadDirectors
     }
 })();
