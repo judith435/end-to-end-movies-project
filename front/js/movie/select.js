@@ -1,6 +1,6 @@
 jQuery(document).ready(function() {
 
-    generalMovie.showMovies();
+    showMovies.showMovies();
     
 });
     
