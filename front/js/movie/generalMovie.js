@@ -62,7 +62,9 @@ var generalMovie = (function() {
         }
     
         var ajaxData = $('form').serialize();
-        console.log(ajaxData);
+        if (app.debugMode) {
+            console.log(ajaxData);
+        }
         $.ajax({
             type: verb,
             url:  app.movieApi,

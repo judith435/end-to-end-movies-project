@@ -6,8 +6,13 @@ $(document).ready(function () {
         function(value, element, params) {
           var aaa = $('#movieName').val().trim();
           var uuu = $('#DirectorDDL').val().trim();
-          alert(aaa + "  " + uuu);
-            // $.ajax({
+         console.log("validations >>>   $('#movieName').val().trim() " + aaa);
+         console.log("validations >>>   $('#DirectorDDL').val().trim() " + uuu);
+         console.log("validations >>>   value " + value);
+         console.log("validations >>>   element " + element);
+         console.log("validations >>>   params " + params);
+         
+         // $.ajax({
             //     type: "POST",
             //     url: "http://"+location.host+"/checkUser.php",
             //     data: "checkUsername="+value,
@@ -32,17 +37,17 @@ $(document).ready(function () {
           minlength: 2,
           // movie_already_exists: ['movie_name', 'director_id'] //['movie_name', 'director_id'] // <-- your custom rule
         },
-        director: {
+        director_id: {
           required: true
         },
-        // check_movie: {
-        //   movie_already_exists: ['tolo', 'fdsaf'] // <-- your custom rule
-        // },
+        movie_already_exists: {
+          movie_already_exists: ['tolo', 'fdsaf'] // <-- your custom rule
+        },
       } ,
       messages: {
          movie_name: { required :"No movie name specified", movie_already_exists: "This Username is taken already"  },
          director: "No director selected",
-         check_movie: "Movie already exists"
+         movie_already_exists: "Movie already exists"
       },
       submitHandler: function() {
            generalMovie.ajaxSubmit();
