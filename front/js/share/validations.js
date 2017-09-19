@@ -3,28 +3,29 @@ $(document).ready(function () {
   //  var response;
     $.validator.addMethod(
         "movie_already_exists", 
-        function(value, element, params) {
-          var aaa = $('#movieName').val().trim();
-          var uuu = $('#DirectorDDL').val().trim();
-         console.log("validations >>>   $('#movieName').val().trim() " + aaa);
-         console.log("validations >>>   $('#DirectorDDL').val().trim() " + uuu);
-         console.log("validations >>>   value " + value);
-         console.log("validations >>>   element " + element);
-         console.log("validations >>>   params " + params);
-         
-         // $.ajax({
-            //     type: "POST",
-            //     url: "http://"+location.host+"/checkUser.php",
-            //     data: "checkUsername="+value,
-            //     dataType:"html",
-            //     success: function(msg)
-            //     {
-            //         //If username exists, set response to true
-            //         response = ( msg == 'true' ) ? true : false;
-            //     }
-            //  });
-            //response = true;
-            return false ;// response;
+        function() {
+          var movieName = $('#movieName').val().trim();
+          var directorID = $('#DirectorDDL').val().trim();
+          console.log("validations >>>   $('#movieName').val().trim() " + movieName);
+          console.log("validations >>>   $('#DirectorDDL').val().trim() " + directorID);
+          var ajaxData = {
+             ctrl: 'movie',
+             movie_name: movieName,
+             director_id: directorID
+            };
+
+          $.ajax({
+                  type: 'GET',
+                  url: 'http://localhost/joint/end-to-end-movies-project/back/api/api.php',
+                  data: ajaxData,
+                  success: function(msg)
+                    {
+                        //If movie already exists, set response to true
+                        response = ( msg == 'true' ) ? true : false;
+                    }
+              });
+              //response = true;
+              return false ;// response;
         },
     );
 
@@ -34,18 +35,16 @@ $(document).ready(function () {
       rules:  {
         movie_name: {
           required: true,
-          minlength: 2,
-          // movie_already_exists: ['movie_name', 'director_id'] //['movie_name', 'director_id'] // <-- your custom rule
         },
         director_id: {
           required: true
         },
         movie_already_exists: {
-          movie_already_exists: ['tolo', 'fdsaf'] // <-- your custom rule
+          movie_already_exists: []
         },
       } ,
       messages: {
-         movie_name: { required :"No movie name specified", movie_already_exists: "This Username is taken already"  },
+         movie_name: "No movie name specified",
          director: "No director selected",
          movie_already_exists: "Movie already exists"
       },

@@ -8,7 +8,9 @@
             $applicationError = ""; //use to check no problems in movies data retrieved from db -> if yes send error back to client
             $mc = new MovieController;
 
-            if (array_key_exists("id", $params)) {
+            if (array_key_exists("movie_name", $params) && array_key_exists("director_id", $params)) {
+                $tot = $params["movie_name"];
+                $tote = $params["director_id"];
                 // $customer = $c->getCustomerById($params["id"]);
                 // return json_encode($customer, JSON_PRETTY_PRINT);
             }
