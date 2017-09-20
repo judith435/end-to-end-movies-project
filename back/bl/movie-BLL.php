@@ -31,6 +31,14 @@
             parent::update($this->get_dbName(), $spName, $spParms);
         }
 
+        public function check_movie_exists($params) {
+            $spParms =  array();
+            array_push($spParms, new PDO_Parm("movie_name", $params["movie_name"], 'string')); 
+            array_push($spParms, new PDO_Parm("director_id", $params["director_id"], 'integer'));
+            $resultSet = parent::get($this->get_dbName(), 'check_movie_exists', $spParms);
+            return $resultSet->fetch();
+        }
+
         public function delete_movie($params) {
             $spParms =  array();
             array_push($spParms, new PDO_Parm("movie_id", $params["movie_id"], 'integer'));

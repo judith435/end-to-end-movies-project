@@ -9,10 +9,7 @@
             $mc = new MovieController;
 
             if (array_key_exists("movie_name", $params) && array_key_exists("director_id", $params)) {
-                $tot = $params["movie_name"];
-                $tote = $params["director_id"];
-                // $customer = $c->getCustomerById($params["id"]);
-                // return json_encode($customer, JSON_PRETTY_PRINT);
+                return  $mc->getMovieByNameDirector($params);
             }
             else {
                 return $mc->getAll_Movies($applicationError);

@@ -6,22 +6,22 @@ $(document).ready(function () {
         function() {
           var movieName = $('#movieName').val().trim();
           var directorID = $('#DirectorDDL').val().trim();
-          console.log("validations >>>   $('#movieName').val().trim() " + movieName);
-          console.log("validations >>>   $('#DirectorDDL').val().trim() " + directorID);
           var ajaxData = {
              ctrl: 'movie',
              movie_name: movieName,
              director_id: directorID
             };
-
-          $.ajax({
+            console.log("validations >>>  ajaxData.movie_name  " + ajaxData.movie_name);
+            console.log("validations >>>  ajaxData.director_id " + ajaxData.director_id);
+            $.ajax({
                   type: 'GET',
                   url: 'http://localhost/joint/end-to-end-movies-project/back/api/api.php',
                   data: ajaxData,
                   success: function(msg)
                     {
-                        //If movie already exists, set response to true
-                        response = ( msg == 'true' ) ? true : false;
+                      console.log("AFTER call to php check movie from form validations " + msg);
+                      //If movie already exists, set response to true
+                      response = ( msg == 'true' ) ? true : false;
                     }
               });
               //response = true;

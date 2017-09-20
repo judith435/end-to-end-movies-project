@@ -37,15 +37,16 @@
                     $movie_bll->delete_movie($params);
         }
         
-        // function getCustomerById($id) {
-        //     $array = [
-        //         "id" => $id,
-        //         "name" => MD5($id)
-        //     ];
-           
-        //     $c = new CustomerModel($array);
-        //     return $c->jsonSerialize();
-        // }
+        function getMovieByNameDirector($params) {
+            $movie_bll = new movie_BLL();
+            $movie_id = $movie_bll->check_movie_exists($params);
+            if ($movie_id == false){
+                return -1;
+            }
+            return $movie_id;
+            // $c = new CustomerModel($array);
+            // return $c->jsonSerialize();
+        }
     }
 
 ?>
