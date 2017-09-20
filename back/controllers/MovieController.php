@@ -40,12 +40,10 @@
         function getMovieByNameDirector($params) {
             $movie_bll = new movie_BLL();
             $movie_id = $movie_bll->check_movie_exists($params);
-            if ($movie_id == false){
-                return -1;
+            if ($movie_id == false){ //no movie found with given movie name and director ID
+                $movie_id =  array("id"=> -1);  
             }
             return $movie_id;
-            // $c = new CustomerModel($array);
-            // return $c->jsonSerialize();
         }
     }
 

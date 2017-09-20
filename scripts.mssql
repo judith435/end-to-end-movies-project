@@ -44,7 +44,7 @@ CREATE TABLE IF NOT EXISTS `movie_project`.`movies` (
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB
-AUTO_INCREMENT = 39
+AUTO_INCREMENT = 24
 DEFAULT CHARACTER SET = latin1;
 
 USE `movie_project` ;
@@ -58,7 +58,7 @@ USE `movie_project`$$
 CREATE DEFINER=`root`@`localhost` PROCEDURE `check_movie_exists`(IN movie_name VARCHAR(50),  in director_id int )
 BEGIN
 
-	SELECT id FROM movies WHERE name = movie_name  AND director_id = director_id;
+	SELECT id FROM movies WHERE name = movie_name  AND d_id = director_id;
     
 END$$
 

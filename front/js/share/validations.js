@@ -1,3 +1,5 @@
+'use strict'
+
 $(document).ready(function () {
 
   //  var response;
@@ -6,6 +8,9 @@ $(document).ready(function () {
         function() {
           var movieName = $('#movieName').val().trim();
           var directorID = $('#DirectorDDL').val().trim();
+          if(movieName == "" || directorID == "") {
+            return true; //if either movie name of director missing no point in checking
+          }
           var ajaxData = {
              ctrl: 'movie',
              movie_name: movieName,
@@ -21,17 +26,22 @@ $(document).ready(function () {
                     {
                       console.log("AFTER call to php check movie from form validations " + msg);
                       //If movie already exists, set response to true
-                      response = ( msg == 'true' ) ? true : false;
+                      var response = ( msg == -1 ) ? true : false;
+                    },
+                    error:function(data){
+                      console.log("error >>>  data  " + data);
+                      return false;
                     }
               });
-              //response = true;
-              return false ;// response;
+              console.log("validations >>>  response " + response);
+              //return response;
+              return false ;
         },
     );
 
 
 
-    validator = $("#frmCU").validate({
+    var validator = $("#frmCU").validate({
       rules:  {
         movie_name: {
           required: true,
