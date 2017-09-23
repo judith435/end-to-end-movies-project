@@ -9,7 +9,6 @@ var generalDirector = (function() {
         function Get_Directors(CallBack_function){
             var ajaxData = {
                 ctrl: 'director'//,
-                //action: 'getDirectors'
             };
 
             $.ajax({    
