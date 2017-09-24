@@ -9,7 +9,7 @@
             $mc = new MovieController;
 
             if (array_key_exists("movie_name", $params) && array_key_exists("director_id", $params)) {
-                return  $mc->getMovieByNameDirector($params); //used to check if movie by same name & director already exists
+                return  $mc->getMovieByNameDirector($params); //used to check if movie by same name & director already exists in remote js validations
             }
             else {
                 return $mc->getAll_Movies($applicationError);
