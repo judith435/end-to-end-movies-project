@@ -29,6 +29,7 @@
                 return;
             }
             $movie_bll = new movie_BLL();
+            //insert => if movie already exists  $applicationError will contain corresponding message and movies-api.php will send apropriate message back to client 
             $movie_bll->insert_update_movie($params, $method, $applicationError);
         }
 
@@ -37,7 +38,7 @@
                     $movie_bll->delete_movie($params);
         }
         
-        function getMovieByNameDirector($params) {
+        function getMovieByNameDirector($params) { //used for js remote validation
             $movie_bll = new movie_BLL();
             $movie_id = $movie_bll->check_movie_exists($params);
             if ($movie_id == false){ //no movie found with given movie name and director ID
