@@ -7,7 +7,6 @@ $(document).ready(function () {
     }
 
     var response;
-    var movieID;
     $.validator.addMethod(
         "movie_already_exists", 
         function() {
@@ -36,9 +35,8 @@ $(document).ready(function () {
                   .done(function(data)
                     {
                       var movie = JSON.parse(data);
-                      //If movie already exists, set response to true -1 means movie was not found
+                      //If movie already exists, set response to true (-1 means movie was not found)
                       response = ( movie.id == -1 ) ? false : true;
-                      movieID = movie.id; //set for error message
                       if(app.debugMode){
                         console.log(".done  response " + response);
                         console.log(".done  data " + data);
