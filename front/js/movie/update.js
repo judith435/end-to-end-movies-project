@@ -2,7 +2,7 @@
 var updateMovie = (function() {
     
     jQuery(document).ready(function() {
-
+        $("#navigation-bar").load("../../templates/navigation-template.html");
         showMovies.showMovies();
         generalMovie.LoadCU_Template();
         generalMovie.LoadDirectors();

@@ -9,7 +9,7 @@
             $mc = new MovieController;
 
             if (array_key_exists("movie_name", $params) && array_key_exists("director_id", $params)) {
-                return  $mc->getMovieByNameDirector($params);
+                return  $mc->getMovieByNameDirector($params); //used to check if movie by same name & director already exists
             }
             else {
                 return $mc->getAll_Movies($applicationError);
@@ -36,7 +36,7 @@
 
         function create_update($params, $function) {
 
-            //used to return the following kind of errors to client: errors in input data, creating movie that talralready exists etc. 
+            //used to return the following kind of errors to client: errors in input data, creating movie that already exists etc. 
             $applicationError = ""; 
             $mc = new MovieController;
             $mc->create_update_Movie($params, $function, $applicationError);

@@ -1,7 +1,7 @@
 'use strict'
 
 jQuery(document).ready(function() {
-
+    $("#navigation-bar").load("../../templates/navigation-template.html");
     showMovies.showMovies();
     $(document).on('click','#MoviesTable tr',function(e){
         delete_Movie($(this));

@@ -15,10 +15,13 @@
     if ($method == 'GET' || $method == 'POST') {
         $params = $_REQUEST;
     }
-    else
+    else //verbs DELETE & PUT
     {
         parse_str(file_get_contents("php://input"), $params);    
     }
+
+    //trim all leading and trailing blank from parameters posted to servant from client
+    $params = array_map("trim", $params);
 
     switch ($params['ctrl']) {
         case 'movie':

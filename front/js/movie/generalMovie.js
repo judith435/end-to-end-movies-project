@@ -78,7 +78,7 @@ var generalMovie = (function() {
                 // data.message conatains CUD confirmation if successful or application errors => e.g. missing product if not
                 alert(data.message); 
                 if (data.status == 'error') { return;}
-                if (data.action == "Update movie" || data.action == "Delete movie" ){ //if action was delete update show updated movies table
+                if (data.action == "Update movie" || data.action == "Delete movie" ){ //if action was delete or update show updated movies table
                     showMovies.showMovies()
                 }
                 if (data.action == "Update movie") {

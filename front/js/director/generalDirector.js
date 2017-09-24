@@ -8,7 +8,7 @@ var generalDirector = (function() {
 
         function Get_Directors(CallBack_function){
             var ajaxData = {
-                ctrl: 'director'//,
+                ctrl: 'director'
             };
 
             $.ajax({    
@@ -39,8 +39,24 @@ var generalDirector = (function() {
             });
         }
 
+        function LoadCU_Template()
+        {
+            $.ajax('../../templates/create-director-template.html').done(function(data) {
+                $('#CreateUpdateDivFields').prepend(data);
+                if ($('title').text() == "Create Director") {
+                    $("#btnAction").html('Create Director');
+                }
+                else {
+                    $("#btnAction").html('Update Director');
+                }
+            });
+        }
+    
+
     return {
-        Get_Directors: Get_Directors 
+        Get_Directors: Get_Directors,
+        LoadCU_Template: LoadCU_Template,
+        
     }
 
 
