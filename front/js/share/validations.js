@@ -10,12 +10,19 @@ $(document).ready(function () {
   $.validator.addMethod(
       "movie_already_exists", 
       function() {
-        
+        console.log(">>> in movie_already_exists $.validator.addMethod validations.js<<<");
         var movieName = $('#movieName').val().trim();
         var directorID = $('#DirectorDDL').val().trim();
 
-        if(movieName == "" || directorID == "") {
+        if (movieName == "" || directorID == "") {
           return true; //if either movie name of director missing no point in checking
+        }
+        console.log("movie_already_exists() movieName from update: " + updateMovie.movieUpdated.movieName);
+        console.log("movie_already_exists() directorID  from update: " + updateMovie.movieUpdated.directorID);
+
+        if (movieName == updateMovie.movieUpdated.movieName && 
+            directorID == updateMovie.movieUpdated.directorID ){
+              return true; //in update movie and no change made to data retrieved from db no point to continue
         }
 
         var ajaxData = {
@@ -32,14 +39,14 @@ $(document).ready(function () {
         $.ajax({
                   type: 'GET',
                   url: app.movieApi,
-                  async: true,
+                  async: false,
                   data: ajaxData
               })
               .done(function(data)
                 {
                   var movie = JSON.parse(data);
                   //-1 means movie was not found
-                  response = ( movie.id == -1 ) ?  true : false;// false : true;
+                  response = ( movie.id == -1 ) ?  true : false;
                   if(app.debugMode){
                     console.log(".done  response " + response);
                     console.log(".done  data " + data);
@@ -54,6 +61,7 @@ $(document).ready(function () {
         });
               
     var validator = $("#frmCU").validate({
+      onkeyup: false,
       rules:  {
         movie_name: {
           required: true 
@@ -64,9 +72,9 @@ $(document).ready(function () {
         duplicate_movie: {  
             movie_already_exists: true
         },
-        director_name: {
-          required: true
-        },
+        // director_name: {
+        //   required: true
+        // },
       } ,
       messages: {
          movie_name: "No movie name specified",

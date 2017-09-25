@@ -94,10 +94,8 @@ var generalMovie = (function() {
     }
 
     function InputChanged() {
-        var movieInfo = document.cookie.split(","); 
-        
-        return  $('#movieName').val().trim() != movieInfo[0] || 
-                $('#DirectorDDL').val().trim() !=  movieInfo[1];
+        return  $('#movieName').val().trim() != updateMovie.movieUpdated.movieName || 
+                $('#DirectorDDL').val().trim() != updateMovie.movieUpdated.directorID;
     }
   
     //ajaxSubmit is called from submitHandler:  in validator = $("#frmCU").validate({ from validations.js file
