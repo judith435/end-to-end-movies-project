@@ -21,7 +21,7 @@ var updateMovie = (function() {
     function update_Movie(row)
     {
         var movieID = row.find('td:first').text();
-       //array  movieUpdated used for module export (module pattern) of info of movie being updated
+        //array  movieUpdated used for module export (module pattern) of info of movie being updated
         movieUpdated.movieName = row.find('td:nth-child(2)').text();
         movieUpdated.directorID = row.find('td:nth-child(3)').text();
         var directorName = row.find('td:nth-child(4)').text();

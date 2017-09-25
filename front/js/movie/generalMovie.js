@@ -30,24 +30,16 @@ var generalMovie = (function() {
             if ($('title').text() == "Create Movie"){
                 $("#DirectorDDL").append("<option value=''>Please Select Director</option>");
             }
+
             for(let i=0; i < directors.length; i++) {
                  $("#DirectorDDL").append(new Option(directors[i].name, directors[i].id));
-                 
-        }
+            }
     }
          
     function ajaxSubmit(){
 
         var htmlTitle = $('title').text();    
         var verb = "";
-
-        //update movie - check existing values changed by user
-        if (htmlTitle == "Update Movie"){
-            if(!InputChanged()){
-                alert("no change in data - no update");
-                return;
-            }
-        }
 
         switch (htmlTitle) {
             case "Create Movie":
@@ -93,11 +85,6 @@ var generalMovie = (function() {
 
     }
 
-    function InputChanged() {
-        return  $('#movieName').val().trim() != updateMovie.movieUpdated.movieName || 
-                $('#DirectorDDL').val().trim() != updateMovie.movieUpdated.directorID;
-    }
-  
     //ajaxSubmit is called from submitHandler:  in validator = $("#frmCU").validate({ from validations.js file
     return {
         ajaxSubmit: ajaxSubmit, 
