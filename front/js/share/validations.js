@@ -1,10 +1,41 @@
 'use strict'
 
 $(document).ready(function () {
+  console.log("==> $(document).ready(function () validations.js <==");
+  
   var app = {
     debugMode: true,   
     movieApi: 'http://localhost/joint/end-to-end-movies-project/back/api/api.php',
     }
+
+  //var validator = $("#frmCU").validate({
+  $("#frmCU").validate({
+      // onkeyup: false,
+    rules:  {
+      movie_name: {
+        required: true 
+      },
+      director_id: {
+        required: true
+      },
+      duplicate_movie: {  
+          movie_already_exists: true
+      },
+      // director_name: {
+      //   required: true
+      // },
+    } ,
+    messages: {
+        movie_name: "No movie name specified",
+        director_id: "No director selected",
+        duplicate_movie: "Movie with same name and director already exists",
+        director_name: "No director name specified",
+    },
+    submitHandler: function() {
+          console.log("submitHandler  response " + response);
+          generalMovie.ajaxSubmit();
+      }
+  });
 
   var response;
   $.validator.addMethod(
@@ -17,13 +48,14 @@ $(document).ready(function () {
         if (movieName == "" || directorID == "") {
           return true; //if either movie name of director missing no point in checking
         }
-        console.log("movie_already_exists() movieName from update: " + updateMovie.movieUpdated.movieName);
-        console.log("movie_already_exists() directorID  from update: " + updateMovie.movieUpdated.directorID);
+        console.log("action button value " + $('#btnAction').text()); 
+        // console.log("movie_already_exists() movieName from update: " + updateMovie.movieUpdated.movieName);
+        // console.log("movie_already_exists() directorID  from update: " + updateMovie.movieUpdated.directorID);
 
-        if (movieName == updateMovie.movieUpdated.movieName && 
-            directorID == updateMovie.movieUpdated.directorID ){
-              return true; //in update movie and no change made to data retrieved from db no point to continue
-        }
+        // if (movieName == updateMovie.movieUpdated.movieName && 
+        //     directorID == updateMovie.movieUpdated.directorID ){
+        //       return true; //in update movie and no change made to data retrieved from db no point to continue
+        // }
 
         var ajaxData = {
             ctrl: 'movie',
@@ -60,32 +92,5 @@ $(document).ready(function () {
               return response;
         });
               
-    var validator = $("#frmCU").validate({
-      onkeyup: false,
-      rules:  {
-        movie_name: {
-          required: true 
-        },
-        director_id: {
-          required: true
-        },
-        duplicate_movie: {  
-            movie_already_exists: true
-        },
-        // director_name: {
-        //   required: true
-        // },
-      } ,
-      messages: {
-         movie_name: "No movie name specified",
-         director_id: "No director selected",
-         duplicate_movie: "Movie with same name and director already exists",
-         director_name: "No director name specified",
-      },
-      submitHandler: function() {
-           console.log("submitHandler  response " + response);
-           generalMovie.ajaxSubmit();
-        }
-    });
   });
   
