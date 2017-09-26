@@ -9,7 +9,6 @@ var updateMovie = (function() {
         generalMovie.LoadCU_Template();
         generalMovie.LoadDirectors();
 
-        $('#MoviesTable').height('250px');
         $("#movieTitle, #CreateUpdateDivFields").hide();
         
         $(document).on('click','#MoviesTable tr',function(e){

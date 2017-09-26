@@ -1,4 +1,4 @@
-'use strict'
+'use strict' //problem of double checking happens from 2nd check onwards
 
 $(document).ready(function () {
   console.log("==> $(document).ready(function () validations.js <==");
