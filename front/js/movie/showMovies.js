@@ -31,7 +31,7 @@ var showMovies = (function() {
                     moviesArray.push(new mo.Movie(data[i].id, 
                                                   data[i].name,
                                                   data[i].director_id,
-                                                  data[i].director_name,
+                                                  data[i].director_name
                                             ));
                 }      
                 $.ajax('../../templates/movie/movie-template.html').done(function(data) {

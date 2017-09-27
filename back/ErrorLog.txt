@@ -1,0 +1,13 @@
+******************************************************************************************************************************
+Error occured at 2017-09-27 18:21:38
+Trace:
+file: C:\xampp\htdocs\joint\end-to-end-movies-project\back\dal\Connection.php => line: 55 => function: execute => class: PDOStatement => type: ->
+file: C:\xampp\htdocs\joint\end-to-end-movies-project\back\bl\BusinessLogicLayer.php => line: 25 => function: executeSP => class: Connection => type: ->
+file: C:\xampp\htdocs\joint\end-to-end-movies-project\back\bl\director-BLL.php => line: 37 => function: update => class: BusinessLogicLayer => type: ->
+file: C:\xampp\htdocs\joint\end-to-end-movies-project\back\controllers\directorController.php => line: 40 => function: insert_update_director => class: director_BLL => type: ->
+file: C:\xampp\htdocs\joint\end-to-end-movies-project\back\api\directors-api.php => line: 47 => function: create_update_Director => class: DirectorController => type: ->
+file: C:\xampp\htdocs\joint\end-to-end-movies-project\back\api\directors-api.php => line: 21 => function: create_update => class: DirectorApi => type: ->
+file: C:\xampp\htdocs\joint\end-to-end-movies-project\back\api\abstract-api.php => line: 16 => function: Update => class: DirectorApi => type: ->
+file: C:\xampp\htdocs\joint\end-to-end-movies-project\back\api\api.php => line: 34 => function: gateway => class: Api => type: ->
+Message: SQLSTATE[42000]: Syntax error or access violation: 1305 PROCEDURE movie_project.update_director does not exist
+Code: 42000
