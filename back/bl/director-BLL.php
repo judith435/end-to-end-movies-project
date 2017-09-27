@@ -37,10 +37,23 @@
             parent::update($this->get_dbName(), $spName, $spParms);
         }
 
-        public function delete_Director($params) {
+        public function delete_Director($params, &$applicationError) {
             $spParms =  array();
             array_push($spParms, new PDO_Parm("director_id", $params["director_id"], 'integer'));
-            return parent::get($this->get_dbName(), 'delete_director', $spParms);
+            //delete director will fail if there are movies with given director (violation of FK constraint)
+            //try catch will catch this error and send message back to client for all other pdo exception 
+            //regular php error handling occurs => ErrorHandling::HandleError writing to error log
+            try { 
+                return parent::get($this->get_dbName(), 'delete_director', $spParms);
+            } 
+            catch (PDOException $e) { 
+                if ($e->getCode() == '23000') { 
+                    $applicationError = "cannot delete director - there are movies defined with this director"; 
+                }
+                else {
+                    throw $e;
+                }
+            }
         }
 
 

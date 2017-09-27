@@ -22,12 +22,20 @@
          }
 
          function Delete($params) {
-
+            //used to handle deleting of director who is linked to at least one movie (FK violation)
+            $applicationError = ""; 
             $dc = new DirectorController;
-            $dc->delete_Director($params);
-            $response_array['status'] = 'ok'; 
+            $dc->delete_Director($params, $applicationError);
+            
+            if ($applicationError != "") {
+                $response_array['status'] = 'error';  
+                $response_array['message'] =  $applicationError; 
+            }
+            else {
+                $response_array['status'] = 'ok'; 
+                $response_array['message'] = 'director deleted successfully'; 
+            }
             $response_array['action'] = 'Delete director';
-            $response_array['message'] = 'director deleted successfully'; 
             return $response_array;
          }
 
@@ -40,15 +48,13 @@
 
             if ($applicationError != "") {
                 $response_array['status'] = 'error';  
-                $response_array['action'] = $function . ' director';
                 $response_array['message'] =  $applicationError; 
             }
             else {
                 $response_array['status'] = 'ok'; 
-                $response_array['action'] = $function . ' director';
                 $response_array['message'] = 'director ' . ($function == "Create" ? 'added' : 'updated') . ' successfully'; 
             }
-
+            $response_array['action'] = $function . ' director';
             return $response_array;
         }
 

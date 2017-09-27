@@ -37,15 +37,13 @@ $(document).ready(function () {
         }
         console.log("action button value " + $('#btnAction').text()); 
         //update director: no change made to data retrieved from db return relevant message to user
-        // if ($('#btnAction').text() == "Update Movie") {
-        //   console.log("movie_already_exists() movieName from update: " + updateMovie.movieUpdated.movieName);
-        //   console.log("movie_already_exists() directorID  from update: " + updateMovie.movieUpdated.directorID);
-        //   if (movieName == updateMovie.movieUpdated.movieName && 
-        //       directorID == updateMovie.movieUpdated.directorID ){
-        //         validator.settings.messages.duplicate_movie = 'No change in data - No update';
-        //         return false; 
-        //   }
-        // }
+        if ($('#btnAction').text() == "Update Director") {
+          console.log("director_already_exists() directorName from update: " + updateDirector.directorUpdated.directorName);
+          if (directorName == updateDirector.directorUpdated.directorName ){
+                validator.settings.messages.duplicate_director = 'No change in data - No update';
+                return false; 
+          }
+        }
 
         var ajaxData = {
             ctrl: 'director',

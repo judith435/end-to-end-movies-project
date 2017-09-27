@@ -52,12 +52,7 @@
             foreach ($parms as  $parm) { 
                 $stmt->bindValue(':' . $parm->getID() , $parm->getValue(), $parm->getType());
             }
-            try{
-                 $stmt->execute();
-            }
-            catch ($error) {
-
-            }
+            $stmt->execute();
             return $stmt;
          }
 

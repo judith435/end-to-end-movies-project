@@ -40,9 +40,9 @@
             $director_bll->insert_update_director($params, $method, $applicationError);
         }
 
-        function delete_Director($params) {
+        function delete_Director($params, &$applicationError) {
             $director_bll = new director_BLL();
-            $director_bll->delete_Director($params);
+            $director_bll->delete_Director($params, $applicationError);
 }
 
     }
