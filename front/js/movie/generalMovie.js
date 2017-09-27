@@ -10,7 +10,7 @@ var generalMovie = (function() {
     function LoadCU_Template()
     {
         $.ajax('../../templates/create-movie-template.html').done(function(data) {
-            $('#CreateUpdateDivFields').prepend(data);
+            $('#InputFields').prepend(data);
             if ($('title').text() == "Create Movie") {
                 $("#btnAction").html('Create Movie');
             }
@@ -74,7 +74,7 @@ var generalMovie = (function() {
                     showMovies.showMovies()
                 }
                 if (data.action == "Update movie") {
-                    $("#movieTitle, #CreateUpdateDivFields").hide();
+                    $("#movieTitle, #InputFields").hide();
                 }
             },
             // systen errors caused by a bad connection, timeout, invalid url  

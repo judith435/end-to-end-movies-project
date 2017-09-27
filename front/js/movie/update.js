@@ -9,7 +9,7 @@ var updateMovie = (function() {
         generalMovie.LoadCU_Template();
         generalMovie.LoadDirectors();
 
-        $("#movieTitle, #CreateUpdateDivFields").hide();
+        $("#movieTitle, #InputFields").hide();
         
         $(document).on('click','#MoviesTable tr',function(e){
             update_Movie($(this));
@@ -32,7 +32,7 @@ var updateMovie = (function() {
         $('#movieName').val(movie.movie_name);
         $("#DirectorDDL").val(movie.director_id);
         $("#movieTitle").text("Movie# being updated: " + movie.movie_id).show();
-        $("#CreateUpdateDivFields").show();
+        $("#InputFields").show();
         $("#btnAction").html('Update Movie');
     }
 

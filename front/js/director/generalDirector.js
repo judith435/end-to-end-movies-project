@@ -42,7 +42,7 @@ var generalDirector = (function() {
         function LoadCU_Template()
         {
             $.ajax('../../templates/create-director-template.html').done(function(data) {
-                $('#CreateUpdateDivFields').prepend(data);
+                $('#InputFields').prepend(data);
                 if ($('title').text() == "Create Director") {
                     $("#btnAction").html('Create Director');
                 }
