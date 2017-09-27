@@ -25,7 +25,7 @@ CREATE TABLE IF NOT EXISTS `movie_project`.`directors` (
   `name` VARCHAR(50) NOT NULL,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB
-AUTO_INCREMENT = 18
+AUTO_INCREMENT = 27
 DEFAULT CHARACTER SET = latin1;
 
 
@@ -44,10 +44,25 @@ CREATE TABLE IF NOT EXISTS `movie_project`.`movies` (
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB
-AUTO_INCREMENT = 24
+AUTO_INCREMENT = 77
 DEFAULT CHARACTER SET = latin1;
 
 USE `movie_project` ;
+
+-- -----------------------------------------------------
+-- procedure check_director_exists
+-- -----------------------------------------------------
+
+DELIMITER $$
+USE `movie_project`$$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `check_director_exists`(IN director_name VARCHAR(50))
+BEGIN
+
+	SELECT id FROM directors WHERE name = director_name;
+    
+END$$
+
+DELIMITER ;
 
 -- -----------------------------------------------------
 -- procedure check_movie_exists
@@ -59,6 +74,22 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `check_movie_exists`(IN movie_name V
 BEGIN
 
 	SELECT id FROM movies WHERE name = movie_name  AND d_id = director_id;
+    
+END$$
+
+DELIMITER ;
+
+-- -----------------------------------------------------
+-- procedure delete_director
+-- -----------------------------------------------------
+
+DELIMITER $$
+USE `movie_project`$$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `delete_director`(IN director_id Int)
+BEGIN
+
+    delete from  `movie_project`.`directors`
+	where id = director_id;   
     
 END$$
 
@@ -89,8 +120,8 @@ USE `movie_project`$$
 CREATE DEFINER=`root`@`localhost` PROCEDURE `get_directors`()
 BEGIN
 
-	SELECT   id,
-			 name
+	SELECT   id as director_id,
+			 name as director_name
 	FROM directors
     order by  name;
     
@@ -115,6 +146,21 @@ BEGIN
 	inner join directors
 	on movies.d_id = directors.id
     order by  director_name, movie_name;
+    
+END$$
+
+DELIMITER ;
+
+-- -----------------------------------------------------
+-- procedure insert_director
+-- -----------------------------------------------------
+
+DELIMITER $$
+USE `movie_project`$$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `insert_director`(IN director_name VARCHAR(50))
+BEGIN
+
+    INSERT INTO `movie_project`.`directors`(`name`) VALUES (director_name);    
     
 END$$
 
