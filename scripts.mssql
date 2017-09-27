@@ -25,7 +25,7 @@ CREATE TABLE IF NOT EXISTS `movie_project`.`directors` (
   `name` VARCHAR(50) NOT NULL,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB
-AUTO_INCREMENT = 27
+AUTO_INCREMENT = 28
 DEFAULT CHARACTER SET = latin1;
 
 
@@ -44,7 +44,7 @@ CREATE TABLE IF NOT EXISTS `movie_project`.`movies` (
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB
-AUTO_INCREMENT = 77
+AUTO_INCREMENT = 75
 DEFAULT CHARACTER SET = latin1;
 
 USE `movie_project` ;
@@ -181,6 +181,23 @@ BEGIN
 	VALUES
 	(movie_name,
 	 director_id);    
+    
+END$$
+
+DELIMITER ;
+
+-- -----------------------------------------------------
+-- procedure update_director
+-- -----------------------------------------------------
+
+DELIMITER $$
+USE `movie_project`$$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `update_director`(IN director_id Int, IN director_name VARCHAR(50))
+BEGIN
+
+    update `movie_project`.`directors`
+	set `name` = director_name 
+	where id = director_id;   
     
 END$$
 

@@ -41,7 +41,10 @@ $(document).ready(function () {
         console.log("action button value " + $('#btnAction').text()); 
         //update director: no change made to data retrieved from db return relevant message to user
         if ($('#btnAction').text() == "Update Director") {
+
           console.log("director_already_exists() directorName from update: " + updateDirector.directorUpdated.directorName);
+          //updateDirector.directorUpdated contains director name of director before any updates 
+          //were made => updateDirector.directorUpdated was set in update.js when movie selected for update 
           if (directorName == updateDirector.directorUpdated.directorName ){
                 validator.settings.messages.duplicate_director = 'No change in data - No update';
                 return false; 

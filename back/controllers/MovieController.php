@@ -11,7 +11,11 @@
             $resultSet = $movie_bll->get_movies();
 
             $allMovies = array();
-
+            //$errorInInput will contain any problems found in data retrieved from db () creating MovieModel
+            //object automatically validates the data - at this stage no further processing occurs with any faulty
+            //db data
+            $errorInInput = ""; 
+            
             while ($row = $resultSet->fetch())
             {                           
                 array_push($allMovies, new MovieModel([ "movie_id" => $row['movie_id'], 

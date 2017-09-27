@@ -19,7 +19,7 @@
 
         public function setName($dir_name, &$errorInInput){
             if(!Validations::nameOK($dir_name)){
-                $errorInInput .= " Director Name cannot be empty\n";
+                $errorInInput .= " Director Name must contain at least one letter\n";
             }
 
             $this->name = $dir_name;

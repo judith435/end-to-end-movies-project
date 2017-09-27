@@ -7,10 +7,13 @@ var generalMovie = (function() {
         movieApi: 'http://localhost/joint/end-to-end-movies-project/back/api/api.php',
         }
 
+     //load input fields from template        
     function LoadCU_Template()
     {
         $.ajax('../../templates/movie/create-movie-template.html').done(function(data) {
             $('#InputFields').prepend(data);
+
+            //set text of submit button according to html file title tag
             if ($('title').text() == "Create Movie") {
                 $("#btnAction").html('Create Movie');
             }
@@ -25,8 +28,10 @@ var generalMovie = (function() {
         getDirectors.Get_Directors(callback_BuildDDL);
     }
     
+    //fill directors combo in input fields with directors retrieved from db in function LoadDirectors()
     var callback_BuildDDL = function(directors)
     {
+            //in case of create Movie put empty option "Please Select Director" as top element of combo
             if ($('title').text() == "Create Movie"){
                 $("#DirectorDDL").append("<option value=''>Please Select Director</option>");
             }
@@ -35,9 +40,11 @@ var generalMovie = (function() {
                  $("#DirectorDDL").append(new Option(directors[i].name, directors[i].id));
             }
     }
-         
+     
+    //submit data to server for create/update and delete movie
     function ajaxSubmit(){
 
+        //htmlTitle way of identifying html page being processed
         var htmlTitle = $('title').text();    
         var verb = "";
 
@@ -70,9 +77,13 @@ var generalMovie = (function() {
                 // data.message conatains CUD confirmation if successful or application errors => e.g. missing product if not
                 alert(data.message); 
                 if (data.status == 'error') { return;}
-                if (data.action == "Update movie" || data.action == "Delete movie" ){ //if action was delete or update show updated movies table
+
+                //if action was delete or update show updated movies table
+                if (data.action == "Update movie" || data.action == "Delete movie" ){ 
                     showMovies.showMovies()
                 }
+
+                //if action was update hide input fields to update movie
                 if (data.action == "Update movie") {
                     $("#movieTitle, #InputFields").hide();
                 }

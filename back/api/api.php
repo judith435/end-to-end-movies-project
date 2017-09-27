@@ -20,7 +20,7 @@
         parse_str(file_get_contents("php://input"), $params);    
     }
 
-    //trim all leading and trailing blank from parameters posted to servant from client
+    //trim all leading and trailing blank from parameters posted to server from client
     $params = array_map("trim", $params);
 
     switch ($params['ctrl']) {

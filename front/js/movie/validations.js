@@ -45,12 +45,16 @@ $(document).ready(function () {
           return true; //if either movie name of director missing no point in checking
         }
         console.log("action button value " + $('#btnAction').text()); 
+
         //update movie: no change made to data retrieved from db return relevant message to user
         if ($('#btnAction').text() == "Update Movie") {
+
           if (app.debugMode){
             console.log("movie_already_exists() movieName from update: " + updateMovie.movieUpdated.movieName);
             console.log("movie_already_exists() directorID  from update: " + updateMovie.movieUpdated.directorID);
           }
+          //updateMovie.movieUpdated contains movie name and director id of of movie before any updates 
+          //were made => updateMovie.movieUpdated was set in update.js when movie selected for update 
           if (movieName == updateMovie.movieUpdated.movieName && 
               directorID == updateMovie.movieUpdated.directorID ){
                 validator.settings.messages.duplicate_movie = 'No change in data - No update';

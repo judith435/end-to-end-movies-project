@@ -24,7 +24,7 @@
                 $applicationError =  "movie with same name & director already exists - movie #" . $movie["id"];
                 return;
             }
-            if ($method == "Update") {
+            if ($method == "Update") {  //for update must add movie_id as first parameter
                     array_unshift($spParms, new PDO_Parm("movie_id", $params["movie_id"], 'integer'));
             }
             $spName = $method == "Create" ? 'insert_movie' : 'update_movie';

@@ -8,6 +8,7 @@ var showMovies = (function() {
         }
 
     function showMovies(){
+        //load movie table template
         $("#MoviesTable").load("../../templates/movie/movies-table-template.html");
 
         var ajaxData = {
@@ -25,6 +26,7 @@ var showMovies = (function() {
                     return;
                 }
 
+                //build array of movie objects with data returned from server
                 var moviesArray = [];
                 var mo = MovieObject();
                 for (let i = 0; i < data.length; i++) {
@@ -36,6 +38,7 @@ var showMovies = (function() {
                 }      
                 $.ajax('../../templates/movie/movie-template.html').done(function(data) {
                     $("#movies").html("");
+                    //after loading movies table row template append data from 1 movie object to each row
                     for(let i=0; i < moviesArray.length; i++) {
                         let template = data;
                         template = template.replace("{{movie_id}}", moviesArray[i].movie_id);

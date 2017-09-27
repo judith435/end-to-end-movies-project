@@ -10,7 +10,10 @@
             $resultSet = $dir_bll->get_directors();
 
             $allDirectors = array();
-            $errorInInput = ""; //use to check no problems in directors data retrieved from db -> if yes send error back to client
+            //$errorInInput will contain any problems found in data retrieved from db () creating DirectorModel
+            //object automatically validates the data - at this stage no further processing occurs with any faulty
+            //db data
+            $errorInInput = ""; 
 
             while ($row = $resultSet->fetch())
             {                           
@@ -24,7 +27,7 @@
         function getDirectorByName($params) { //used for js remote validation
             $director_bll = new director_BLL();
             $director_id = $director_bll->check_director_exists($params);
-            if ($director_id == false) { //no movie found with given movie name and director ID
+            if ($director_id == false) { //no movie found with given director name
                 $director_id = ["id" => -1];
             }
             return $director_id;

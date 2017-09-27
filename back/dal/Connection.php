@@ -32,6 +32,7 @@
             $this->db = $db;
         }
 
+        //generic function to execute any mysql statement
         public function executeStatement($query, $parms) {
             $pdo = new PDO($this->dsn, $this->user, $this->pass, $this->opt);
             $stmt = $pdo->prepare($query);
@@ -39,6 +40,7 @@
             return $stmt;
         }
 
+        //generic function to execute any mysql stored procedure
         public function executeSP($sp, $parms) {   
             $pdo = new PDO($this->dsn, $this->user, $this->pass, $this->opt);
             $parmList = '(';

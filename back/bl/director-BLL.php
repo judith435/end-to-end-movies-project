@@ -30,7 +30,7 @@
                 $applicationError =  "director with same name already exists - director #" . $director["id"];
                 return;
             }
-            if ($method == "Update") {
+            if ($method == "Update") { //for update must add director_id as first parameter
               array_unshift($spParms, new PDO_Parm("director_id", $params["director_id"], 'integer'));
             }
             $spName = $method == "Create" ? 'insert_director' : 'update_director';

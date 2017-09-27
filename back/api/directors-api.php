@@ -22,7 +22,7 @@
         }
 
          function Delete($params) {
-            //used to handle deleting of director who is linked to at least one movie (FK violation)
+            //$applicationError  used to handle deleting of director who is linked to at least one movie (FK violation)
             $applicationError = ""; 
             $dc = new DirectorController;
             $dc->delete_Director($params, $applicationError);
