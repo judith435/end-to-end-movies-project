@@ -10,7 +10,10 @@ $(document).ready(function () {
   var validator = $("#frmCU").validate({
     rules:  {
       movie_name: {
-        required: true 
+        required: true,
+        normalizer: function(value) {
+          return $.trim(value);
+        } 
       },
       director_id: {
         required: true
@@ -18,7 +21,7 @@ $(document).ready(function () {
       duplicate_movie: {  
           movie_already_exists: true
       },
-    } ,
+    },
     messages: {
         movie_name: "No movie name specified",
         director_id: "No director selected",

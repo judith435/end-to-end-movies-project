@@ -31,7 +31,7 @@
                 return;
             }
             if ($method == "Update") {
-                    array_unshift($spParms, new PDO_Parm("director_id", $params["director_id"], 'integer'));
+              array_unshift($spParms, new PDO_Parm("director_id", $params["director_id"], 'integer'));
             }
             $spName = $method == "Create" ? 'insert_director' : 'update_director';
             parent::update($this->get_dbName(), $spName, $spParms);

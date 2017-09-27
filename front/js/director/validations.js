@@ -10,12 +10,15 @@ $(document).ready(function () {
   var validator = $("#frmCU").validate({
     rules:  {
       director_name: {
-       required: true
+       required: true,
+       normalizer: function(value) {
+        return $.trim(value);
+        } 
       },
       duplicate_director: {  
        director_already_exists: true
       },
-    } ,
+    },
     messages: {
         director_name: "No director name specified",
         duplicate_director: "Director with same name already exists",

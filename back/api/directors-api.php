@@ -18,8 +18,8 @@
             }
         }
          function Update($params) {
-
-         }
+            return $this->create_update($params, "Update");  
+        }
 
          function Delete($params) {
             //used to handle deleting of director who is linked to at least one movie (FK violation)

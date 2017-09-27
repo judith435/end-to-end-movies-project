@@ -57,7 +57,7 @@ var generalDirector = (function() {
                     getDirectors.Get_Directors(getDirectors.callback_Build_Directors_Table);
                 }
                 if (data.action == "Update director") {
-                   // $("#movieTitle, #InputFields").hide();
+                   $("#directorTitle, #InputFields").hide();
                 }
             },
             // systen errors caused by a bad connection, timeout, invalid url  

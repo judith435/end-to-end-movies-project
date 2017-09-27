@@ -24,7 +24,7 @@
         function getDirectorByName($params) { //used for js remote validation
             $director_bll = new director_BLL();
             $director_id = $director_bll->check_director_exists($params);
-            if ($director_id == false){ //no movie found with given movie name and director ID
+            if ($director_id == false) { //no movie found with given movie name and director ID
                 $director_id = ["id" => -1];
             }
             return $director_id;
@@ -43,8 +43,7 @@
         function delete_Director($params, &$applicationError) {
             $director_bll = new director_BLL();
             $director_bll->delete_Director($params, $applicationError);
-}
-
+        }
     }
 
 ?>
