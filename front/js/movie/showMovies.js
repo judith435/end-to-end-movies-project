@@ -8,7 +8,7 @@ var showMovies = (function() {
         }
 
     function showMovies(){
-        $("#MoviesTable").load("../../templates/movies-table-template.html");
+        $("#MoviesTable").load("../../templates/movie/movies-table-template.html");
 
         var ajaxData = {
             ctrl: 'movie'
@@ -34,7 +34,7 @@ var showMovies = (function() {
                                                   data[i].director_name,
                                             ));
                 }      
-                $.ajax('../../templates/movie-template.html').done(function(data) {
+                $.ajax('../../templates/movie/movie-template.html').done(function(data) {
                     $("#movies").html("");
                     for(let i=0; i < moviesArray.length; i++) {
                         let template = data;

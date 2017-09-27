@@ -9,7 +9,7 @@ var generalMovie = (function() {
 
     function LoadCU_Template()
     {
-        $.ajax('../../templates/create-movie-template.html').done(function(data) {
+        $.ajax('../../templates/movie/create-movie-template.html').done(function(data) {
             $('#InputFields').prepend(data);
             if ($('title').text() == "Create Movie") {
                 $("#btnAction").html('Create Movie');
@@ -22,7 +22,7 @@ var generalMovie = (function() {
     
     function LoadDirectors()
     {
-        generalDirector.Get_Directors(callback_BuildDDL);
+        getDirectors.Get_Directors(callback_BuildDDL);
     }
     
     var callback_BuildDDL = function(directors)

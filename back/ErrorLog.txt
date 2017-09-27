@@ -1,50 +1,12 @@
 ******************************************************************************************************************************
-Error occured at 2017-09-17 12:58:44
+Error occured at 2017-09-27 07:45:25
 Trace:
 file: C:\xampp\htdocs\joint\end-to-end-movies-project\back\dal\Connection.php => line: 56 => function: execute => class: PDOStatement => type: ->
 file: C:\xampp\htdocs\joint\end-to-end-movies-project\back\bl\BusinessLogicLayer.php => line: 30 => function: executeSP => class: Connection => type: ->
-file: C:\xampp\htdocs\joint\end-to-end-movies-project\back\bl\movie-BLL.php => line: 14 => function: get => class: BusinessLogicLayer => type: ->
-file: C:\xampp\htdocs\joint\end-to-end-movies-project\back\controllers\MovieController.php => line: 11 => function: get_movies => class: movie_BLL => type: ->
-file: C:\xampp\htdocs\joint\end-to-end-movies-project\back\api\movies-api.php => line: 21 => function: getAll_Movies => class: MovieController => type: ->
-file: C:\xampp\htdocs\joint\end-to-end-movies-project\back\api\abstract-api.php => line: 14 => function: Read => class: MovieApi => type: ->
-file: C:\xampp\htdocs\joint\end-to-end-movies-project\back\api\api.php => line: 42 => function: gateway => class: Api => type: ->
-Message: SQLSTATE[42000]: Syntax error or access violation: 1305 PROCEDURE movie_project.get_moviesx does not exist
-Code: 42000
-******************************************************************************************************************************
-Error occured at 2017-09-17 12:58:58
-Trace:
-file: C:\xampp\htdocs\joint\end-to-end-movies-project\back\dal\Connection.php => line: 56 => function: execute => class: PDOStatement => type: ->
-file: C:\xampp\htdocs\joint\end-to-end-movies-project\back\bl\BusinessLogicLayer.php => line: 25 => function: executeSP => class: Connection => type: ->
-file: C:\xampp\htdocs\joint\end-to-end-movies-project\back\bl\movie-BLL.php => line: 30 => function: update => class: BusinessLogicLayer => type: ->
-file: C:\xampp\htdocs\joint\end-to-end-movies-project\back\controllers\MovieController.php => line: 33 => function: insert_update_movie => class: movie_BLL => type: ->
-file: C:\xampp\htdocs\joint\end-to-end-movies-project\back\api\movies-api.php => line: 45 => function: create_update_Movie => class: MovieController => type: ->
-file: C:\xampp\htdocs\joint\end-to-end-movies-project\back\api\movies-api.php => line: 8 => function: create_update => class: MovieApi => type: ->
-file: C:\xampp\htdocs\joint\end-to-end-movies-project\back\api\abstract-api.php => line: 12 => function: Create => class: MovieApi => type: ->
-file: C:\xampp\htdocs\joint\end-to-end-movies-project\back\api\api.php => line: 42 => function: gateway => class: Api => type: ->
-Message: SQLSTATE[42000]: Syntax error or access violation: 1305 PROCEDURE movie_project.insert_movieX does not exist
-Code: 42000
-******************************************************************************************************************************
-Error occured at 2017-09-17 12:59:51
-Trace:
-file: C:\xampp\htdocs\joint\end-to-end-movies-project\back\dal\Connection.php => line: 56 => function: execute => class: PDOStatement => type: ->
-file: C:\xampp\htdocs\joint\end-to-end-movies-project\back\bl\BusinessLogicLayer.php => line: 25 => function: executeSP => class: Connection => type: ->
-file: C:\xampp\htdocs\joint\end-to-end-movies-project\back\bl\movie-BLL.php => line: 30 => function: update => class: BusinessLogicLayer => type: ->
-file: C:\xampp\htdocs\joint\end-to-end-movies-project\back\controllers\MovieController.php => line: 33 => function: insert_update_movie => class: movie_BLL => type: ->
-file: C:\xampp\htdocs\joint\end-to-end-movies-project\back\api\movies-api.php => line: 45 => function: create_update_Movie => class: MovieController => type: ->
-file: C:\xampp\htdocs\joint\end-to-end-movies-project\back\api\movies-api.php => line: 27 => function: create_update => class: MovieApi => type: ->
-file: C:\xampp\htdocs\joint\end-to-end-movies-project\back\api\abstract-api.php => line: 16 => function: Update => class: MovieApi => type: ->
-file: C:\xampp\htdocs\joint\end-to-end-movies-project\back\api\api.php => line: 42 => function: gateway => class: Api => type: ->
-Message: SQLSTATE[42000]: Syntax error or access violation: 1305 PROCEDURE movie_project.update_movieX does not exist
-Code: 42000
-******************************************************************************************************************************
-Error occured at 2017-09-17 13:00:18
-Trace:
-file: C:\xampp\htdocs\joint\end-to-end-movies-project\back\dal\Connection.php => line: 56 => function: execute => class: PDOStatement => type: ->
-file: C:\xampp\htdocs\joint\end-to-end-movies-project\back\bl\BusinessLogicLayer.php => line: 30 => function: executeSP => class: Connection => type: ->
-file: C:\xampp\htdocs\joint\end-to-end-movies-project\back\bl\movie-BLL.php => line: 36 => function: get => class: BusinessLogicLayer => type: ->
-file: C:\xampp\htdocs\joint\end-to-end-movies-project\back\controllers\MovieController.php => line: 38 => function: delete_movie => class: movie_BLL => type: ->
-file: C:\xampp\htdocs\joint\end-to-end-movies-project\back\api\movies-api.php => line: 33 => function: delete_Movie => class: MovieController => type: ->
-file: C:\xampp\htdocs\joint\end-to-end-movies-project\back\api\abstract-api.php => line: 18 => function: Delete => class: MovieApi => type: ->
-file: C:\xampp\htdocs\joint\end-to-end-movies-project\back\api\api.php => line: 42 => function: gateway => class: Api => type: ->
-Message: SQLSTATE[42000]: Syntax error or access violation: 1305 PROCEDURE movie_project.delete_moviex does not exist
-Code: 42000
+file: C:\xampp\htdocs\joint\end-to-end-movies-project\back\bl\director-BLL.php => line: 43 => function: get => class: BusinessLogicLayer => type: ->
+file: C:\xampp\htdocs\joint\end-to-end-movies-project\back\controllers\directorController.php => line: 45 => function: delete_Director => class: director_BLL => type: ->
+file: C:\xampp\htdocs\joint\end-to-end-movies-project\back\api\directors-api.php => line: 27 => function: delete_Director => class: DirectorController => type: ->
+file: C:\xampp\htdocs\joint\end-to-end-movies-project\back\api\abstract-api.php => line: 18 => function: Delete => class: DirectorApi => type: ->
+file: C:\xampp\htdocs\joint\end-to-end-movies-project\back\api\api.php => line: 34 => function: gateway => class: Api => type: ->
+Message: SQLSTATE[23000]: Integrity constraint violation: 1451 Cannot delete or update a parent row: a foreign key constraint fails (`movie_project`.`movies`, CONSTRAINT `fk_movies_directors` FOREIGN KEY (`d_id`) REFERENCES `directors` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION)
+Code: 23000

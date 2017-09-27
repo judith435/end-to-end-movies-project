@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Create Director</title>
+        <title>Delete Director</title>
         <link rel="stylesheet"    href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" 
         integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"      crossorigin="anonymous">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>    
@@ -15,14 +15,18 @@
     </head>
     <body>
         <div id="navigation-bar"></div> 
-        <div class="container">
-            <h2>Create Director</h2> 
-            <form id="frmCU">
-                <div id="InputFields" class="extra-padding"></div>
+        <section class='container'>
+            <h2>Delete Director</h2> 
+            <h4>Click row you wish to delete</h4>
+            <div id="DirectorsTable" class="regular_size_table"></div>
+            <form id="frmD">
+                <input  type="hidden" name="ctrl" value="director" >
+                <input  type="hidden" id="directorID" name="director_id" value="0">
             </form>
-        </div>
-        <script src='../../js/director/create.js'></script> 
-        <script src='../../js/director/generalDirector.js'></script> 
-        <script src='../../js/director/validations.js'></script> 
+        </section>
+        <script src='../../js/director/delete.js'></script> 
+        <script src='../../js/director/getDirectors.js'></script>  
+        <script src='../../js/director/generalDirector.js'></script>  
+        <script src='../../js/director/director.js'></script> 
     </body>
 </html>

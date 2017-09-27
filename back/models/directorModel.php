@@ -7,9 +7,10 @@
         private $id;
         private $name;
 
-        function __construct($params, $errorInInput) {
-            $this->setID($params["id"]);
-            $this->setName($params["name"], $errorInInput);
+        function __construct($params, &$errorInInput) {
+            $this->setID
+             (array_key_exists("director_id", $params) ? $params["director_id"] : 0); 
+            $this->setName($params["director_name"], $errorInInput);
         }
 
         public function setID($dir_id){

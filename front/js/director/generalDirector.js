@@ -6,57 +6,73 @@ var generalDirector = (function() {
         movieApi: 'http://localhost/joint/end-to-end-movies-project/back/api/api.php',
         }
 
-        function Get_Directors(CallBack_function){
-            var ajaxData = {
-                ctrl: 'director'
-            };
+    function LoadCU_Template()
+    {
+        $.ajax('../../templates/director/create-director-template.html').done(function(data) {
+            $('#InputFields').prepend(data);
+            if ($('title').text() == "Create Director") {
+                $("#btnAction").html('Create Director');
+            }
+            else {
+                $("#btnAction").html('Update Director');
+            }
+        });
+    }
 
-            $.ajax({    
-                type: 'GET',
-                url: app.movieApi,
-                data: ajaxData,
-                success: function(response) {
-                    if(app.debugMode){
-                        console.log("movieApi ok response");
-                        console.log(response);
-                    }
-                    var getDirectors_response = JSON.parse(response);
-                    if (getDirectors_response.status != undefined &&
-                        getDirectors_response.status == "error") {
-                        alert (getDirectors_response.message);
-                        return;
-                    }
-                    CallBack_function(getDirectors_response); 
-                },
-                // systen errors caused by a bad connection, timeout, invalid url  
-                error: function(error_response){
-                    if(app.debugMode){
-                        console.log("movieApi error response");
-                        console.log(error_response);
-                    }
-                alert("error: " + error_response); //===Show Error Message====
-                    }
-            });
-        }
+    function ajaxSubmit(){
+        
+        var htmlTitle = $('title').text();    
+        var verb = "";
 
-        function LoadCU_Template()
-        {
-            $.ajax('../../templates/create-director-template.html').done(function(data) {
-                $('#InputFields').prepend(data);
-                if ($('title').text() == "Create Director") {
-                    $("#btnAction").html('Create Director');
-                }
-                else {
-                    $("#btnAction").html('Update Director');
-                }
-            });
+        switch (htmlTitle) {
+            case "Create Director":
+                verb = "POST";
+                break;
+            case "Update Director":
+                verb = "PUT";
+                break;
+            case "Delete Director":
+                verb = "DELETE";
+                break;
         }
     
+        var ajaxData = $('form').serialize();
+        if (app.debugMode) {
+            console.log(ajaxData);
+        }
+        $.ajax({
+            type: verb,
+            url:  app.movieApi,
+            data:  ajaxData,
+            success: function(data){
+                if (app.debugMode) {
+                    console.log("movieApi response");
+                    console.log(data);
+                }
+                data = JSON.parse(data);
+                // data.message conatains CUD confirmation if successful or application errors => e.g. missing director if not
+                alert(data.message); 
+                if (data.status == 'error') { return;}
+                if (data.action == "Update director" || data.action == "Delete director" ){ //if action was delete or update show updated directors table
+                    getDirectors.Get_Directors(getDirectors.callback_Build_Directors_Table);
+                }
+                if (data.action == "Update director") {
+                   // $("#movieTitle, #InputFields").hide();
+                }
+            },
+            // systen errors caused by a bad connection, timeout, invalid url  
+            error:function(data){
+                alert(data); //===Show Error Message====
+                }
+        });
+        
+    }
+        
+        
 
     return {
-        Get_Directors: Get_Directors,
         LoadCU_Template: LoadCU_Template,
-        
+        ajaxSubmit: ajaxSubmit,
     }
 
 
