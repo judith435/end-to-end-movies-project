@@ -26,7 +26,6 @@
                                     " => type: " . $item["type"] .PHP_EOL);
             }
             //certain errors do not generate trace => handle them here
-            $toto =  $Error->getFile();
             if(empty($trace)){
                 fwrite($ErrorFile,  "file: " . $Error->getFile() . 
                                     " => line: " . $Error->getLine() . 
