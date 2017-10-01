@@ -8,6 +8,8 @@ $(document).ready(function () {
     }
 
   var validator = $("#frmCU").validate({
+    onkeyup: false,
+    onfocusout: false,
     rules:  {
       director_name: {
        required: true,
@@ -38,7 +40,7 @@ $(document).ready(function () {
         if (directorName == "" ) {
           return true; //if director name missing no point in checking
         }
-        console.log("action button value " + $('#btnAction').text()); 
+        console.log("()()()()()()()()()()() in $.validator.addMethod director_already_exists action button value " + $('#btnAction').text()); 
         //update director: no change made to data retrieved from db return relevant message to user
         if ($('#btnAction').text() == "Update Director") {
 
@@ -48,6 +50,9 @@ $(document).ready(function () {
           if (directorName == updateDirector.directorUpdated.directorName ){
                 validator.settings.messages.duplicate_director = 'No change in data - No update';
                 return false; 
+          }
+          else {
+            validator.settings.messages.duplicate_director = 'Director with same name already exists';
           }
         }
 

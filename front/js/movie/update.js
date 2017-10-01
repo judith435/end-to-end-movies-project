@@ -46,6 +46,7 @@ var updateMovie = (function() {
         $("#movieTitle").text("Movie# being updated: " + movie.movie_id).show();
         $("#InputFields").show();
         $("#btnAction").html('Update Movie');
+        $("#duplicate_movie-error").text(""); //reset any prevous validator errors when new movie selected for update
     }
 
     return {

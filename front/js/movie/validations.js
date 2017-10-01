@@ -8,6 +8,8 @@ $(document).ready(function () {
     }
 
   var validator = $("#frmCU").validate({
+    onkeyup: false,
+    onfocusout: false,
     rules:  {
       movie_name: {
         required: true,
@@ -44,8 +46,8 @@ $(document).ready(function () {
         if (movieName == "" || directorID == "") {
           return true; //if either movie name of director missing no point in checking
         }
-        console.log("action button value " + $('#btnAction').text()); 
-
+        console.log("()()()()()()()()()()() in $.validator.addMethod movie_already_exists action button value " + $('#btnAction').text()); 
+        
         //update movie: no change made to data retrieved from db return relevant message to user
         if ($('#btnAction').text() == "Update Movie") {
 
@@ -60,6 +62,10 @@ $(document).ready(function () {
                 validator.settings.messages.duplicate_movie = 'No change in data - No update';
                 return false; 
           }
+          else {
+            validator.settings.messages.duplicate_movie = 'Movie with same name and director already exists';
+          }
+
         }
 
         var ajaxData = {

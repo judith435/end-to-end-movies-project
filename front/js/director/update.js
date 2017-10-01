@@ -39,6 +39,7 @@ var updateDirector = (function() {
         $("#directorTitle").text("Director# being updated: " + director.director_id).show();
         $("#InputFields").show();
         $("#btnAction").html('Update Director');
+        $("#duplicate_director-error").text(""); //reset any prevous validator errors when new director selected for update
     }
 
     return {
