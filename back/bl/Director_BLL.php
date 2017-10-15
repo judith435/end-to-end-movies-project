@@ -3,7 +3,7 @@
 
     require_once 'BusinessLogicLayer.php';
     
-    class director_BLL  extends BusinessLogicLayer{
+    class Director_BLL  extends BusinessLogicLayer{
 
         function __construct() {
             parent::__construct('movie_project');

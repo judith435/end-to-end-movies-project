@@ -1,6 +1,6 @@
 <?php
-    require_once 'movies-api.php';
-    require_once 'directors-api.php';
+    require_once 'MovieApi.php';
+    require_once 'DirectorApi.php';
     require_once '../share/ErrorHandling.php';
     
     //define error handling for site
